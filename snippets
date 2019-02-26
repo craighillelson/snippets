@@ -41,8 +41,12 @@
 
   'open csv':
     'prefix': 'open csv'
-    'body': 'with open("") as csvfile:'
-
-  'import namedtuple':
-    'prefix': 'namedtuple'
-    'body': 'from collections import namedtuple'
+    'body': 'def open_csv(file, dct):\n
+        \    """ open csv and populate a dictionary with its contents """\n
+        \    with open(file) as f:\n
+            \        f_csv = csv.reader(f)\n
+            \        headings = next(f_csv)\n
+            \        Row = namedtuple(\'Row\', headings)\n
+            \        for r in f_csv:\n
+                \            row = Row(*r)\n
+                \            dct[row.term] = row.definition\n'
