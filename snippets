@@ -3,6 +3,10 @@
     'prefix': 'lst'
     'body': 'lst = []'
 
+  'namedtuple':
+    'prefix': 'namedtuple'
+    'body': 'from collections import namedtuple'
+
   'create dictionary':
     'prefix': 'dct'
     'body': 'dct = {}'
@@ -43,10 +47,10 @@
     'prefix': 'open csv'
     'body': 'def open_csv(file, dct):\n
         \    """ open csv and populate a dictionary with its contents """\n
-        \    with open(file) as f:\n
-            \        f_csv = csv.reader(f)\n
-            \        headings = next(f_csv)\n
-            \        Row = namedtuple(\'Row\', headings)\n
-            \        for r in f_csv:\n
-                \            row = Row(*r)\n
-                \            dct[row.term] = row.definition\n'
+        \    with open(file) as csv_file:\n
+            \        f_csv = csv.reader(csv_file)\n
+            \        column_headings = next(f_csv)\n
+            \        csv_row = namedtuple(\'Row\', column_headings)\n
+            \        for rows in f_csv:\n
+                \        row = csv_row(*rows)\n
+                \        dct[row.term] = row.definition\n'
