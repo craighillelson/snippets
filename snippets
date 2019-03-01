@@ -46,11 +46,43 @@
   'open csv':
     'prefix': 'open_csv'
     'body': 'def open_csv(file, dct):\n
-        \    """ open csv and populate a dictionary with its contents """\n
-        \    with open(file) as csv_file:\n
-            \        f_csv = csv.reader(csv_file)\n
-            \        column_headings = next(f_csv)\n
-            \        csv_row = namedtuple(\'Row\', column_headings)\n
-            \        for rows in f_csv:\n
-                \        row = csv_row(*rows)\n
-                \        dct[row.term] = row.definition\n'
+        \   """ open csv and populate a dictionary with its contents """\n
+        \   with open(file) as csv_file:\n
+            \       f_csv = csv.reader(csv_file)\n
+            \       column_headings = next(f_csv)\n
+            \       csv_row = namedtuple(\'Row\', column_headings)\n
+            \       for rows in f_csv:\n
+                \           row = csv_row(*rows)\n
+                \           dct[row.term] = row.definition\n'
+
+  'switch function':
+    'prefix': 'switch_function'
+    'body': 'def open_csv(file, dct):\n
+        \   """ switch """\n
+        \   switcher = {\n
+        \       "a": "option_1",\n
+        \       "b": "option_2",\n
+        \       "c": "option_3",\n
+        \       }\n
+        \   return switcher.get(topic, "nothing")\n'
+
+  'write to csv':
+    'prefix': 'write_to_csv_funtion'
+    'body': 'def write_to_csv(name_of_file, dct):\n
+        \   """ write dictionary to csv """\n
+        \   with open(name_of_file, "w") as out_file:\n
+            \       out_csv = csv.writer(out_file)\n
+            \       out_csv.writerow(HEADERS) # define HEADERS before running function\n
+            \       for k, v in dct.items():\n
+                \           keys_values = (k, v)\n
+                \           out_csv.writerow(keys_values)'
+
+  'print list':
+    'prefix': 'print_lst'
+    'body': 'for item in lst:\n
+    \   print(item)'
+
+  'write to text file':
+    'prefix': 'write_to_txt'
+    'body': 'FILE = open("file.txt", "w")\nfor item in lst:\n
+    \   FILE.write(item)'
