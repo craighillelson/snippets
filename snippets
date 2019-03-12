@@ -21,15 +21,18 @@
 
   'create for loop':
     'prefix': 'for_loop'
-    'body': 'for x in lst:'
+    'body': 'for x in lst:\n
+      \   # process row'
 
   'test list membership':
     'prefix': 'if_in'
-    'body': 'if x in:'
+    'body': 'if x in:\n
+      \   # process row'
 
   'loop through items in dictionary':
     'prefix': 'for_k_v'
-    'body': 'for k, v in dct.items():'
+    'body': 'for k, v in dct.items():\n
+      \   # process row'
 
   'merge dictionaries':
     'prefix': 'merge_dictionaries'
@@ -42,14 +45,15 @@
   'sort dictinary by keys':
     'prefix': 'sort_dct_keys'
     'body': 'for k, v in sorted(dct.items()):\n
-      \   print(k, v)'
+      \   # process rows'
 
   'find values in two sets that intersect':
     'prefix': 'intersection'
     'body': '''
     set1 = {"apples", "oranges", "bananas"} # fruits as placeholder values
     set2 = {'bananas', 'tangerines', 'lemons'}\n
-    intersection_set = set2.intersection(set1)'''
+    intersection_set = set2.intersection(set1)
+    '''
 
   'return lambda':
     'prefix': 'return'
@@ -65,37 +69,43 @@
 
   'open csv':
     'prefix': 'open_csv'
-    'body': 'def open_csv(file, dct):\n
-        \   """ open csv and populate a dictionary with its contents """\n
-        \   with open(file) as csv_file:\n
-            \       f_csv = csv.reader(csv_file)\n
-            \       column_headings = next(f_csv)\n
-            \       csv_row = namedtuple(\'Row\', column_headings)\n
-            \       for rows in f_csv:\n
-                \           row = csv_row(*rows)\n
-                \           dct[row.term] = row.definition\n'
+    'body': '''
+    import csv
+    from collections import namedtuple\n
+    def open_csv(file, dct):
+        \""" open csv and populate a dictionary with its contents """
+        \with open(file) as csv_file:
+        \    f_csv = csv.reader(csv_file)
+        \    column_headings = next(f_csv)
+        \    csv_row = namedtuple(\'Row\', column_headings)
+        \    for rows in f_csv:
+        \        row = csv_row(*rows)
+        \        dct[row.term] = row.definition
+        '''
 
   'switch function':
     'prefix': 'switch_function'
-    'body': 'def switch_case(argument):\n
-        \   """ switch case statement """\n
-        \   switcher = {\n
-        \       "a": "option_1",\n
-        \       "b": "option_2",\n
-        \       "c": "option_3",\n
-        \       }\n
-        \   return switcher.get(argument, "nothing")\n'
+    'body': '''
+    def switch_case(argument):
+      \  """ switch case statement """
+      \  switcher = {
+      \      "a": "option_1",
+      \      "b": "option_2",
+      \      "c": "option_3",
+      \      }
+      \  return switcher.get(argument, "nothing")
+    '''
 
   'write to csv':
     'prefix': 'write_to_csv_function'
     'body': 'def write_to_csv(name_of_file, dct):\n
         \   """ write dictionary to csv """\n
         \   with open(name_of_file, "w") as out_file:\n
-            \       out_csv = csv.writer(out_file)\n
-            \       out_csv.writerow(HEADERS) # define HEADERS before running function\n
-            \       for k, v in dct.items():\n
-                \           keys_values = (k, v)\n
-                \           out_csv.writerow(keys_values)'
+        \           out_csv = csv.writer(out_file)\n
+        \           out_csv.writerow(HEADERS) # define HEADERS before running function\n
+        \           for k, v in dct.items():\n
+        \               keys_values = (k, v)\n
+        \               out_csv.writerow(keys_values)'
 
   'print list':
     'prefix': 'print_lst'
@@ -104,11 +114,30 @@
 
   'write to text file':
     'prefix': 'write_to_txt'
-    'body': 'FILE = open("file.txt", "w")\nfor item in lst:\n
-    \   FILE.write(item)'
+    'body': '''
+    FILE = open("file.txt", "w")\n
+    for item in lst:
+    \    FILE.write(item)
+    '''
 
   'generate list of random numbers':
     'prefix': 'list_of_random_numbers'
     'body': '''
     import random\n
-    random_numbers_lst = random.sample(range(1, 100), 3)'''
+    random_numbers_lst = random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
+    '''
+
+  'check user input':
+    'prefix': 'check_user_input'
+    'body': '''
+    while True:
+        try:
+            NUMBER_OF_GUESTS = int(input("How many ice cream sandwiches would "
+                                         "you like? ")) # replace ice cream sandwiches variable
+            if NUMBER_OF_GUESTS > 12: # replace variable
+                print("please enter a number less than or equal to twelve ")
+            else:
+                break
+        except ValueError:
+            print("Please enter an integer.")
+    '''
