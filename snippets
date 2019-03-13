@@ -11,6 +11,10 @@
     'prefix': 'import_random'
     'body': 'import random'
 
+  'import re':
+    'prefix': 'import_re'
+    'body': 'import re'
+
   'namedtuple':
     'prefix': 'namedtuple'
     'body': 'from collections import namedtuple'
@@ -21,23 +25,31 @@
 
   'create for loop':
     'prefix': 'for_loop'
-    'body': 'for x in lst:\n
-      \   # process row'
+    'body': '''
+    for x in lst:
+        # process row
+    '''
 
   'in list':
     'prefix': 'if_in'
-    'body': 'if x in:\n
-      \   # process row'
+    'body': '''
+    if x in:
+        # process row
+    '''
 
   'not in list':
     'prefix': 'if_not_in'
-    'body': 'if not in x:\n
-      \   # process row'
+    'body': '''
+    if not in x:
+        # process row
+    '''
 
   'loop through items in dictionary':
     'prefix': 'for_k_v'
-    'body': 'for k, v in dct.items():\n
-      \   # process row'
+    'body': '''
+    for k, v in dct.items(): # rename keys and values
+        # process row
+    '''
 
   'merge dictionaries':
     'prefix': 'merge_dictionaries'
@@ -49,8 +61,10 @@
 
   'sort dictinary by keys':
     'prefix': 'sort_dct_keys'
-    'body': 'for k, v in sorted(dct.items()):\n
-      \   # process rows'
+    'body': '''
+    for k, v in sorted(dct.items()): # rename keys and values
+        # process rows
+    '''
 
   'find values in two sets that intersect':
     'prefix': 'intersection'
@@ -78,51 +92,56 @@
     import csv
     from collections import namedtuple\n
     def open_csv(file, dct):
-        \""" open csv and populate a dictionary with its contents """
-        \with open(file) as csv_file:
-        \    f_csv = csv.reader(csv_file)
-        \    column_headings = next(f_csv)
-        \    csv_row = namedtuple(\'Row\', column_headings)
-        \    for rows in f_csv:
-        \        row = csv_row(*rows)
-        \        dct[row.term] = row.definition
-        '''
+    """ open csv and populate a dictionary with its contents """
+    with open(file) as csv_file:
+        f_csv = csv.reader(csv_file)
+        column_headings = next(f_csv)
+        csv_row = namedtuple(\'Row\', column_headings)
+        for rows in f_csv:
+            row = csv_row(*rows)
+            dct[row.term] = row.definition
+    '''
 
   'switch function':
     'prefix': 'switch_function'
     'body': '''
     def switch_case(argument):
-      \  """ switch case statement """
-      \  switcher = {
-      \      "a": "option_1",
-      \      "b": "option_2",
-      \      "c": "option_3",
-      \      }
-      \  return switcher.get(argument, "nothing")
+        """ switch case statement """
+        switcher = {
+            "a": "option_1",
+            "b": "option_2",
+            "c": "option_3",
+            }
+        return switcher.get(argument, "nothing")
     '''
 
   'write to csv':
     'prefix': 'write_to_csv_function'
-    'body': 'def write_to_csv(name_of_file, dct):\n
-        \   """ write dictionary to csv """\n
-        \   with open(name_of_file, "w") as out_file:\n
-        \           out_csv = csv.writer(out_file)\n
-        \           out_csv.writerow(HEADERS) # define HEADERS before running function\n
-        \           for k, v in dct.items():\n
-        \               keys_values = (k, v)\n
-        \               out_csv.writerow(keys_values)'
+    'body': '''
+    import csv\n
+    def write_to_csv(name_of_file, dct):
+    """ write dictionary to csv """
+    with open(name_of_file, "w") as out_file:
+        out_csv = csv.writer(out_file)
+        out_csv.writerow(HEADERS) # define HEADERS before running function
+        for k, v in dct.items():
+            keys_values = (k, v)
+            out_csv.writerow(keys_values)
+    '''
 
   'print list':
     'prefix': 'print_lst'
-    'body': 'for item in lst:\n
-    \   print(item)'
+    'body': '''
+    for item in lst:
+        print(item)
+    '''
 
   'write to text file':
     'prefix': 'write_to_txt'
     'body': '''
     FILE = open("file.txt", "w")\n
     for item in lst:
-    \    FILE.write(item)
+        FILE.write(item)
     '''
 
   'generate list of random numbers':
@@ -139,7 +158,7 @@
         try:
             NUMBER_OF_GUESTS = int(input("How many ice cream sandwiches would "
                                          "you like? ")) # replace ice cream sandwiches variable
-            if NUMBER_OF_GUESTS > 12: # replace variable
+            if NUMBER_OF_GUESTS > 12: # replace 12
                 print("please enter a number less than or equal to twelve ")
             else:
                 break
