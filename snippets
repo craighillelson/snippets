@@ -37,6 +37,13 @@
         # process row
     '''
 
+  'remove @ and everything after':
+    'prefix': 'remove_@'
+    'body': '''
+    for item in LST:
+        print(item[:item.find("@")])
+    '''
+
   'not in list':
     'prefix': 'if_not_in'
     'body': '''
