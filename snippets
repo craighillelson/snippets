@@ -95,7 +95,10 @@
 
   'get today':
     'prefix': 'today'
-    'body': 'today = date.today()'
+    'body': '''
+    from datetime import date\n
+    today = date.today()
+    '''
 
   'open csv':
     'prefix': 'open_csv'
