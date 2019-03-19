@@ -1,4 +1,8 @@
 '.source.python':
+  'doc string':
+    'prefix': 'doc_string'
+    'body': '""" __doc__ """'
+
   'create list':
     'prefix': 'lst'
     'body': 'lst = []'
@@ -99,14 +103,14 @@
     import csv
     from collections import namedtuple\n
     def open_csv(file, dct):
-    """ open csv and populate a dictionary with its contents """
-    with open(file) as csv_file:
-        f_csv = csv.reader(csv_file)
-        column_headings = next(f_csv)
-        csv_row = namedtuple(\'Row\', column_headings)
-        for rows in f_csv:
-            row = csv_row(*rows)
-            dct[row.term] = row.definition
+    \    """ open csv and populate a dictionary with its contents """
+    \    with open(file) as csv_file:
+    \        f_csv = csv.reader(csv_file)
+    \        column_headings = next(f_csv)
+    \        csv_row = namedtuple(\'Row\', column_headings)
+    \        for rows in f_csv:
+    \            row = csv_row(*rows)
+    \            dct[row.term] = row.definition
     '''
 
   'switch function':
@@ -127,13 +131,13 @@
     'body': '''
     import csv\n
     def write_to_csv(name_of_file, dct):
-    """ write dictionary to csv """
-    with open(name_of_file, "w") as out_file:
-        out_csv = csv.writer(out_file)
-        out_csv.writerow(HEADERS) # define HEADERS before running function
-        for k, v in dct.items():
-            keys_values = (k, v)
-            out_csv.writerow(keys_values)
+    \    """ write dictionary to csv """
+    \    with open(name_of_file, "w") as out_file:
+    \        out_csv = csv.writer(out_file)
+    \        out_csv.writerow(HEADERS) # define HEADERS before running function
+    \        for k, v in dct.items():
+    \            keys_values = (k, v)
+    \            out_csv.writerow(keys_values)
     '''
 
   'print list':
