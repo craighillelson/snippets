@@ -25,19 +25,19 @@
 
   'create dictionary':
     'prefix': 'dct'
-    'body': 'dct = {}'
+    'body': 'dct = {} # make dictinary name meaningful'
 
   'create for loop':
     'prefix': 'for_loop'
     'body': '''
-    for x in lst:
+    for x in lst: # rename variable to make it meaningful
         # process row
     '''
 
   'in list':
     'prefix': 'if_in'
     'body': '''
-    if x in:
+    if x in: # rename variable to make it meaningful
         # process row
     '''
 
@@ -58,7 +58,7 @@
   'loop through items in dictionary':
     'prefix': 'for_k_v'
     'body': '''
-    for k, v in dct.items(): # rename keys and values
+    for k, v in dct.items(): # rename keys and values to make them meaningful
         # process row
     '''
 
@@ -73,7 +73,7 @@
   'sort dictinary by keys':
     'prefix': 'sort_dct_keys'
     'body': '''
-    for k, v in sorted(dct.items()): # rename keys and values
+    for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
         # process rows
     '''
 
@@ -138,7 +138,7 @@
     \    with open(name_of_file, "w") as out_file:
     \        out_csv = csv.writer(out_file)
     \        out_csv.writerow(HEADERS) # define HEADERS before running function
-    \        for k, v in dct.items():
+    \        for k, v in dct.items(): # rename keys and values to make to make them meaningful
     \            keys_values = (k, v)
     \            out_csv.writerow(keys_values)
     '''
@@ -165,14 +165,29 @@
     random_numbers_lst = random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
     '''
 
+  'search for strings containing a specified string':
+    'prefix': 'search'
+    'body': 'result = re.search("dundermifflin.com", email) # replace "dundermifflin.com"'
+
+  'validate email addresses':
+    'prefix': 'validate_email_addresses'
+    'body': '''
+    for email in LST: # rename LST to something meaningful
+    \    match = re.search(r'[\w.-]+@[\w.-]+', email)
+    \    if match:
+    \        print("valid")
+    \    else:
+    \        print("invalid")
+    '''
+
   'check user input':
     'prefix': 'check_user_input'
     'body': '''
     while True:
         try:
             NUMBER_OF_GUESTS = int(input("How many ice cream sandwiches would "
-                                         "you like? ")) # replace ice cream sandwiches variable
-            if NUMBER_OF_GUESTS > 12: # replace 12
+                                         "you like? ")) # replace "ice cream sandwiches"
+            if NUMBER_OF_GUESTS > 12: # replace "12"
                 print("please enter a number less than or equal to twelve ")
             else:
                 break
