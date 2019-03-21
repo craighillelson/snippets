@@ -116,6 +116,18 @@
     \            dct[row.term] = row.definition
     '''
 
+  'open csv and edit headers':
+    'prefix': 'open_csv_edit_headers'
+    'body': '''
+    with open(file) as f: # replace "file" with file name
+    \    F_CSV = csv.reader(f)
+    \    HEADERS = [re.sub('[^a-zA-Z_]', '_', h) for h in next(F_CSV)]
+    \    ROW = namedtuple('Row', HEADERS)
+    \    for r in F_CSV:
+    \        row = ROW(*r)
+    \        # process row
+    '''
+
   'switch function':
     'prefix': 'switch_function'
     'body': '''
