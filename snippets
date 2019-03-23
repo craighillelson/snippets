@@ -55,10 +55,17 @@
         # process row
     '''
 
-  'loop through items in dictionary':
-    'prefix': 'for_k_v'
+  'sort dictionary by keys':
+    'prefix': 'sort_dct_by_values'
     'body': '''
-    for k, v in dct.items(): # rename keys and values to make them meaningful
+    for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
+        # process row
+    '''
+
+  'sort dictionary by values':
+    'prefix': 'sort_dct_by_values'
+    'body': '''
+    for k, v in sorted(dct.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
         # process row
     '''
 
@@ -205,4 +212,23 @@
                 break
         except ValueError:
             print("Please enter an integer.")
+    '''
+
+  'get the difference between two dates':
+    'prefix': 'diff_two_dates'
+    'body': '''
+    import datetime
+    from datetime import date
+
+    NOW = datetime.datetime.now()
+    YEAR = NOW.year
+
+    # calculate how between a given date and today
+    TODAY = date.today()
+    A_DATE = date(2020, 3, 17) # replace with whatever date you're working with
+    DELTA = A_DATE - TODAY
+    DAYS_BETWEEN = DELTA.days
+
+    print(A_DATE)
+    print(DAYS_BETWEEN)
     '''
