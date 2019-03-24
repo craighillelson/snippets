@@ -107,6 +107,17 @@
     today = date.today()
     '''
 
+  'format today':
+    'prefix': 'format_today'
+    'body': '''
+    from datetime import date
+    from datetime import datetime
+
+    today = date.today()
+    today_formatted = datetime.strftime(today, '%A %B %d, %Y')
+    print(today_formatted)
+    '''
+
   'open csv':
     'prefix': 'open_csv'
     'body': '''
