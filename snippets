@@ -243,3 +243,13 @@
     print(A_DATE)
     print(DAYS_BETWEEN)
     '''
+
+  'word counter':
+    'prefix': 'word_counter'
+    'body': '''
+    from collections import Counter
+    word_counts = Counter(words)
+    words_counts = word_counts.most_common()
+    for word in words_counts:
+    \    print(f"{word[0]}\t{word[1]}")
+    '''
