@@ -34,6 +34,20 @@
         # process row
     '''
 
+  'create for loop with enumeration':
+    'prefix': 'for_loop_enumerate'
+    'body': '''
+    for i, item in enumerate(my_items):
+        print(f"{i}: {item}")
+    '''
+
+  'indexed for loop':
+    'prefix': 'for_loop_indexed'
+    'body': '''
+    for i in range(a, n, s): # a - start, n - stop, s - step
+        # process i
+    '''
+
   'in list':
     'prefix': 'if_in'
     'body': '''
@@ -138,7 +152,7 @@
     \        CSV_ROW = namedtuple(\'Row\', COLUMN_HEADINGS)
     \        for rows in F_CSV:
     \            row = CSV_ROW(*rows)
-    \            dct[row.key] = row.value # rename to be meaningful
+    \            dct[row.key] = row.value
     '''
 
   'open csv and edit headers':
