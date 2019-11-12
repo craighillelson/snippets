@@ -139,6 +139,16 @@
     print(today_formatted)
     '''
 
+  'format date':
+    'prefix': 'format_date'
+    'body': '''
+    from datetime import datetime
+    date = '9/27/19 17:01'
+    date_strptime = datetime.strptime(date, '%m/%d/%y %H:%M')
+    date_formatted = date_strptime.strftime('%Y-%m-%d')
+    print(date_formatted)
+    '''
+
   'open csv':
     'prefix': 'open_csv'
     'body': '''
