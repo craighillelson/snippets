@@ -274,7 +274,7 @@
     print(A_DATE)
     print(DAYS_BETWEEN)
     '''
-    
+
   'limiting float to two decimal places':
     'prefix': 'format_float'
     'body': '''
@@ -312,4 +312,20 @@
 
     \t</body>
     </html>
+    '''
+
+'.text.plain':
+  'create AWS instance':
+    'prefix': 'create_aws_instance'
+    'body' : '''
+    # occurrences of 'xxx' are placeholders
+    # replace with relevant values
+    \\
+    aws ec2 run-instances --image-id ami-xxx --count 1 \\
+    --instance-type t2.micro --key-name xxx \\
+    --security-group-ids sg-xxx --subnet-id subnet-xxx \\
+    --user-data xxx.sh \\
+    --tag-specifications \\
+    'ResourceType=instance,Tags=[{Key=xxx,Value=xxx}]'
+    'ResourceType=volume,Tags=[{Key=xxx,Value=xxx}]'
     '''
