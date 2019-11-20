@@ -143,10 +143,26 @@
     'prefix': 'format_date'
     'body': '''
     from datetime import datetime
+
     date = '9/27/19 17:01'
     date_strptime = datetime.strptime(date, '%m/%d/%y %H:%M')
     date_formatted = date_strptime.strftime('%Y-%m-%d')
+
     print(date_formatted)
+    '''
+
+  'diff two dates minutes':
+    'prefix': 'diff_two_dates_minutes'
+    'body': '''
+    from datetime import datetime
+
+    FMT = '%Y-%m-%d %H:%M:%S'
+    D1 = datetime.strptime('2019-01-01 10:39:30', FMT)
+    D2 = datetime.strptime('2019-01-02 10:39:00', FMT)
+
+    DIFF = D2 - D1
+    DIFF_MINUTES = (DIFF.days * 24 * 60) + (DIFF.seconds/60)
+    print("{:.2f}".format(DIFF_MINUTES))
     '''
 
   'open csv':
