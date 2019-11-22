@@ -19,15 +19,15 @@
     'prefix': 'import_re'
     'body': 'import re'
 
-  'namedtuple':
-    'prefix': 'namedtuple'
+  'import namedtuple':
+    'prefix': 'import_namedtuple'
     'body': 'from collections import namedtuple'
 
   'create dictionary':
     'prefix': 'dct'
     'body': 'dct = {} # make dictinary name meaningful'
 
-  'create for loop':
+  'for loop list':
     'prefix': 'for_loop'
     'body': '''
     for x in lst: # rename variable to make it meaningful
@@ -41,14 +41,14 @@
         print(f"{i}: {item}")
     '''
 
-  'indexed for loop':
+  'for loop indexed':
     'prefix': 'for_loop_indexed'
     'body': '''
     for i in range(a, n, s): # a - start, n - stop, s - step
         # process i
     '''
 
-  'in list':
+  'if in list':
     'prefix': 'if_in'
     'body': '''
     if x in: # rename variable to make it meaningful
@@ -62,15 +62,15 @@
         print(item[:item.find("@")])
     '''
 
-  'not in list':
+  'if not in list':
     'prefix': 'if_not_in'
     'body': '''
     if not in x:
         # process row
     '''
 
-  'loop through dictionary':
-    'prefix': 'loop_through_dct'
+  'for loop dictionary':
+    'prefix': 'for_loop_dct'
     'body': '''
     for k, v in dct.items(): # rename dct, keys, and values to make them meaningful
         # process row
