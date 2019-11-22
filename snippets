@@ -7,6 +7,10 @@
     'prefix': 'import_csv'
     'body': 'import csv'
 
+  'import namedtuple':
+    'prefix': 'import_namedtuple'
+    'body': 'from collections import namedtuple'
+
   'import random':
     'prefix': 'import_random'
     'body': 'import random'
@@ -15,9 +19,9 @@
     'prefix': 'import_re'
     'body': 'import re'
 
-  'import namedtuple':
-    'prefix': 'import_namedtuple'
-    'body': 'from collections import namedtuple'
+  'from datetime import date':
+    'prefix': 'from_datetime'
+    'body': 'from datetime import date'
 
   'for loop list':
     'prefix': 'for_loop'
@@ -83,13 +87,6 @@
         # process row
     '''
 
-  'sort dictinary by keys':
-    'prefix': 'sort_dct_keys'
-    'body': '''
-    for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
-        # process rows
-    '''
-
   'sort dictionary by values':
     'prefix': 'sort_dct_by_values'
     'body': '''
@@ -102,7 +99,7 @@
     'body': 'dct3 = {**dct1, **dct2}'
 
   'get differences between two dictionaries':
-    'prefix': 'get_diff_set'
+    'prefix': 'set_get_diff'
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
 
   'find values in two sets that intersect':
@@ -116,10 +113,6 @@
   'return lambda':
     'prefix': 'return'
     'body': 'RTN = lambda: "\\\\n"'
-
-  'from datetime import date':
-    'prefix': 'from_datetime'
-    'body': 'from datetime import date'
 
   'get today':
     'prefix': 'today'
@@ -165,8 +158,8 @@
     print("{:.2f}".format(DIFF_MINUTES))
     '''
 
-  'open csv':
-    'prefix': 'open_csv'
+  'csv - open':
+    'prefix': 'csv_open'
     'body': '''
     import csv
     from collections import namedtuple\n
@@ -181,8 +174,8 @@
     \            dct[row.key] = row.value
     '''
 
-  'open csv and edit headers':
-    'prefix': 'open_csv_edit_headers'
+  'csv - open and edit headers':
+    'prefix': 'csv_open_edit_headers'
     'body': '''
     with open(file) as f: # replace "file" with file name
     \    F_CSV = csv.reader(f)
@@ -191,6 +184,20 @@
     \    for r in F_CSV:
     \        row = ROW(*r)
     \        # process row
+    '''
+
+  'csv - write':
+    'prefix': 'csv_write'
+    'body': '''
+    import csv\n
+    def write_to_csv(name_of_file, dct):
+    \    """ write dictionary to csv """
+    \    with open(name_of_file, "w") as out_file:
+    \        out_csv = csv.writer(out_file)
+    \        out_csv.writerow(HEADERS) # define HEADERS before running function
+    \        for k, v in dct.items(): # rename keys and values to make to make them meaningful
+    \            keys_values = (k, v)
+    \            out_csv.writerow(keys_values)
     '''
 
   'switch function':
@@ -204,27 +211,6 @@
             "c": "option_3",
             }
         return switcher.get(argument, "nothing")
-    '''
-
-  'write to csv':
-    'prefix': 'write_to_csv_function'
-    'body': '''
-    import csv\n
-    def write_to_csv(name_of_file, dct):
-    \    """ write dictionary to csv """
-    \    with open(name_of_file, "w") as out_file:
-    \        out_csv = csv.writer(out_file)
-    \        out_csv.writerow(HEADERS) # define HEADERS before running function
-    \        for k, v in dct.items(): # rename keys and values to make to make them meaningful
-    \            keys_values = (k, v)
-    \            out_csv.writerow(keys_values)
-    '''
-
-  'print list':
-    'prefix': 'print_lst'
-    'body': '''
-    for item in lst:
-        print(item)
     '''
 
   'write to text file':
@@ -288,7 +274,7 @@
     print(DAYS_BETWEEN)
     '''
 
-  'limiting float to two decimal places':
+  'format float':
     'prefix': 'format_float'
     'body': '''
     num = 22/7 # set num to any value you want
