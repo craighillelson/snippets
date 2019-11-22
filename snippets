@@ -235,7 +235,7 @@
   'validate email addresses':
     'prefix': 'validate_email_addresses'
     'body': '''
-    for email in LST: # rename LST to something meaningful
+    for email in lst: # rename lst to something meaningful
     \    match = re.search(r'[\w.-]+@[\w.-]+', email)
     \    if match:
     \        print("valid")
