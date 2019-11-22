@@ -3,10 +3,6 @@
     'prefix': 'doc_string'
     'body': '""" __doc__ """'
 
-  'create list':
-    'prefix': 'lst'
-    'body': 'lst = []'
-
   'import csv':
     'prefix': 'import_csv'
     'body': 'import csv'
@@ -23,10 +19,6 @@
     'prefix': 'import_namedtuple'
     'body': 'from collections import namedtuple'
 
-  'create dictionary':
-    'prefix': 'dct'
-    'body': 'dct = {} # make dictinary name meaningful'
-
   'for loop list':
     'prefix': 'for_loop'
     'body': '''
@@ -34,7 +26,15 @@
         # process row
     '''
 
-  'create for loop with enumeration':
+  'create list':
+    'prefix': 'lst'
+    'body': 'lst = []'
+
+  'create dictionary':
+    'prefix': 'dct'
+    'body': 'dct = {} # make dictinary name meaningful'
+
+  'for loop enumerated dictionary':
     'prefix': 'for_loop_enumerate'
     'body': '''
     for i, item in enumerate(my_items):
@@ -55,13 +55,6 @@
         # process row
     '''
 
-  'remove @ and everything after':
-    'prefix': 'remove_@'
-    'body': '''
-    for item in LST:
-        print(item[:item.find("@")])
-    '''
-
   'if not in list':
     'prefix': 'if_not_in'
     'body': '''
@@ -76,11 +69,25 @@
         # process row
     '''
 
+  'remove @ and everything after':
+    'prefix': 'remove_@'
+    'body': '''
+    for item in LST:
+        print(item[:item.find("@")])
+    '''
+
   'sort dictionary by keys':
     'prefix': 'sort_dct_by_values'
     'body': '''
     for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
         # process row
+    '''
+
+  'sort dictinary by keys':
+    'prefix': 'sort_dct_keys'
+    'body': '''
+    for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
+        # process rows
     '''
 
   'sort dictionary by values':
@@ -97,13 +104,6 @@
   'get differences between two dictionaries':
     'prefix': 'get_diff_set'
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
-
-  'sort dictinary by keys':
-    'prefix': 'sort_dct_keys'
-    'body': '''
-    for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
-        # process rows
-    '''
 
   'find values in two sets that intersect':
     'prefix': 'intersection'
