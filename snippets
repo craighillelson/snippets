@@ -178,6 +178,7 @@
     'body': '''
     import csv
     from collections import namedtuple\n
+    dct = {}\n
     def open_csv(file, dct):
     \    """ open csv and populate a dictionary with its contents """
     \    with open(file) as csv_file:
@@ -205,6 +206,7 @@
     'prefix': 'csv_write'
     'body': '''
     import csv\n
+    HEADERS = # name headers\n
     def write_to_csv(name_of_file, dct):
     \    """ write dictionary to csv """
     \    with open(name_of_file, "w") as out_file:
