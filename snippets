@@ -30,6 +30,13 @@
         # process row
     '''
 
+  'for loop through multiple lists':
+    'prefix': 'for_loop_multiple_lists'
+    'body': '''
+    for item1, item2 in zip(lst1, lst2):
+        # process row
+    '''
+
   'create list':
     'prefix': 'lst'
     'body': 'lst = []'
@@ -61,9 +68,9 @@
     '''
 
   'for loop enumerated dictionary':
-    'prefix': 'for_loop_enumerate_dct'
+    'prefix': 'for_loop_enumerate'
     'body': '''
-    for i, item in enumerate(dct):
+    for i, item in enumerate(my_items):
         print(f"{i}: {item}")
     '''
 
@@ -77,14 +84,14 @@
   'if in list':
     'prefix': 'if_in'
     'body': '''
-    if x in lst: # rename variable to make it meaningful
+    if x in: # rename variable to make it meaningful
         # process row
     '''
 
   'if not in list':
     'prefix': 'if_not_in'
     'body': '''
-    if x not in lst:
+    if not in x:
         # process row
     '''
 
@@ -103,7 +110,7 @@
     '''
 
   'sort dictionary by keys':
-    'prefix': 'sort_dct_by_keys'
+    'prefix': 'sort_dct_by_values'
     'body': '''
     for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
         # process row
@@ -112,7 +119,7 @@
   'sort dictionary by values':
     'prefix': 'sort_dct_by_values'
     'body': '''
-    for k, v in sorted(dct.items(), key=lambda x: x[1]): # rename keys and values to make them meaningful
+    for k, v in sorted(dct.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
         # process row
     '''
 
