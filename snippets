@@ -77,14 +77,14 @@
   'if in list':
     'prefix': 'if_in'
     'body': '''
-    if x in: # rename variable to make it meaningful
+    if x in lst: # rename variable to make it meaningful
         # process row
     '''
 
   'if not in list':
     'prefix': 'if_not_in'
     'body': '''
-    if not in x:
+    if x not in lst:
         # process row
     '''
 
@@ -103,7 +103,7 @@
     '''
 
   'sort dictionary by keys':
-    'prefix': 'sort_dct_by_values'
+    'prefix': 'sort_dct_by_keys'
     'body': '''
     for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
         # process row
@@ -112,7 +112,7 @@
   'sort dictionary by values':
     'prefix': 'sort_dct_by_values'
     'body': '''
-    for k, v in sorted(dct.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
+    for k, v in sorted(dct.items(), key=lambda x: x[1]): # rename keys and values to make them meaningful
         # process row
     '''
 
