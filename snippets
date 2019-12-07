@@ -38,11 +38,11 @@
     '''
 
   'create list':
-    'prefix': 'lst'
+    'prefix': 'create_lst'
     'body': 'lst = []'
 
   'create test list':
-    'prefix': 'test_lst'
+    'prefix': 'create_test_lst'
     'body': '''
     lst = [
       \  'Gene',
@@ -53,15 +53,15 @@
     '''
 
   'create empty set':
-    'prefix': 'empty_set'
+    'prefix': 'create_empty_set'
     'body': 's = set()'
 
   'create dictionary':
-    'prefix': 'dct'
+    'prefix': 'create_dct'
     'body': 'dct = {} # make dictinary name meaningful'
 
   'create test dictionary':
-    'prefix': 'test_dct'
+    'prefix': 'create_test_dct'
     'body': '''
     dct = {
       \  'Gene': 'bass',
@@ -205,7 +205,7 @@
     '''
 
   'csv - open':
-    'prefix': 'csv_open'
+    'prefix': 'open_csv'
     'body': '''
     import csv
     from collections import namedtuple\n
@@ -222,7 +222,7 @@
     '''
 
   'csv - open and edit headers':
-    'prefix': 'csv_open_edit_headers'
+    'prefix': 'open_csv_edit_headers'
     'body': '''
     with open(file) as f: # replace "file" with file name
     \    F_CSV = csv.reader(f)
@@ -234,7 +234,7 @@
     '''
 
   'csv - write':
-    'prefix': 'csv_write'
+    'prefix': 'write_csv'
     'body': '''
     import csv\n
     HEADERS = # name headers\n
