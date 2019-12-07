@@ -127,6 +127,16 @@
         # process row
     '''
 
+  'sort dictionary':
+    'prefix': 'group_dct_by_values'
+    'body': '''
+    dct = {}
+    dct_grouped_by_values = {}
+
+    for k, v in sorted(dct.items()):
+        dct_grouped_by_values.setdefault(v, []).append(k)
+    '''
+
   'merge dictionaries':
     'prefix': 'merge_dictionaries'
     'body': 'dct3 = {**dct1, **dct2}'
