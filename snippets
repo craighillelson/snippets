@@ -141,7 +141,7 @@
     'prefix': 'merge_dictionaries'
     'body': 'dct3 = {**dct1, **dct2}'
 
-  'get differences between two dictionaries':
+  'create set of values comprised of the differences between two dictionaries':
     'prefix': 'set_get_diff'
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
 
@@ -218,7 +218,7 @@
     print("{:.2f}".format(DIFF_MINUTES))
     '''
 
-  'csv - open':
+  'open csv':
     'prefix': 'open_csv'
     'body': '''
     import csv
@@ -235,7 +235,7 @@
     \            dct[row.key] = row.value
     '''
 
-  'csv - open and edit headers':
+  'open csv and edit headers':
     'prefix': 'open_csv_edit_headers'
     'body': '''
     with open(file) as f: # replace "file" with file name
@@ -247,7 +247,7 @@
     \        # process row
     '''
 
-  'csv - write':
+  'write csv':
     'prefix': 'write_csv'
     'body': '''
     import csv\n
