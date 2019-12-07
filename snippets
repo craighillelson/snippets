@@ -54,7 +54,7 @@
 
   'create empty set':
     'prefix': 'create_empty_set'
-    'body': 's = set()'
+    'body': 's = set() # rename set to make it meaningful'
 
   'create dictionary':
     'prefix': 'create_dct'
@@ -127,7 +127,7 @@
         # process row
     '''
 
-  'sort dictionary':
+  'group dictionary by values':
     'prefix': 'group_dct_by_values'
     'body': '''
     dct = {}
@@ -149,7 +149,7 @@
     'prefix': 'common_items_dct'
     'body': 'common_items = dict(dct_a.items() & dct_b.items())'
 
-  'find values in two sets that intersect':
+  'create set of values common to two sets':
     'prefix': 'intersection'
     'body': '''
     set1 = {"apples", "oranges", "bananas"} # fruits as placeholder values
@@ -160,6 +160,10 @@
   'return lambda':
     'prefix': 'return'
     'body': 'RTN = lambda: "\\\\n"'
+
+  'print return':
+    'prefix': 'print_return'
+    'body': 'print(RTN())'
 
   'get today':
     'prefix': 'today'
