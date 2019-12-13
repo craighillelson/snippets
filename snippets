@@ -110,6 +110,14 @@
         # process row
     '''
 
+  'compare two dictionaries':
+    'prefix': 'compare_two_dictionaries'
+    'body': '''
+    for (k, v), (k2, v2) in zip(DCT1.items(), DCT2.items()):
+        print(f'{k} {v} - {k2} {v2}')
+    '''
+
+
   'remove @ and everything after':
     'prefix': 'remove_@'
     'body': '''
