@@ -117,7 +117,6 @@
         print(f'{k} {v} - {k2} {v2}')
     '''
 
-
   'remove @ and everything after':
     'prefix': 'remove_@'
     'body': '''
@@ -157,6 +156,10 @@
     'prefix': 'set_get_diff'
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
 
+  'create a set comprised of the differences between two dictionaries\' keys':
+    'prefix': 'diff_dct_keys'
+    'body': 'DCT1.keys() - DCT2.keys()'
+
   'create a dictionary of items common to two dictionaries':
     'prefix': 'common_items_dct'
     'body': 'COMMON_ITEMS = dict(DCT1.items() & DCT2.items())'
@@ -164,7 +167,7 @@
   'create set of values common to two sets':
     'prefix': 'intersection'
     'body': '''
-    set1 = {"apples", "oranges", "bananas"} # fruits as placeholder values
+    set1 = {'apples', 'oranges', 'bananas'} # fruits as placeholder values
     set2 = {'bananas', 'tangerines', 'lemons'}\n
     intersection_set = set2.intersection(set1)
     '''
