@@ -24,7 +24,7 @@
     'body': 'from datetime import date'
 
   'for loop list':
-    'prefix': 'for_loop_lst'
+    'prefix': 'lst_for_loop'
     'body': '''
     for x in lst: # rename variable to make it meaningful
         # process row
@@ -38,11 +38,11 @@
     '''
 
   'create list':
-    'prefix': 'create_lst'
+    'prefix': 'lst_create'
     'body': 'lst = []'
 
   'create test list':
-    'prefix': 'create_test_lst'
+    'prefix': 'lst_create_test'
     'body': '''
     lst = [
       \  'Gene',
@@ -53,19 +53,19 @@
     '''
 
   'get index of an element in a list':
-    'prefix': 'get_index'
+    'prefix': 'lst_get_index'
     'body': 'lst.index(element) # rename lst'
 
   'create empty set':
-    'prefix': 'create_empty_set'
+    'prefix': 'set_create'
     'body': 's = set() # rename set to make it meaningful'
 
   'create dictionary':
-    'prefix': 'create_dct'
+    'prefix': 'dct_create'
     'body': 'dct = {} # make dictinary name meaningful'
 
   'create test dictionary':
-    'prefix': 'create_test_dct'
+    'prefix': 'dct_create_test'
     'body': '''
     dct = {
       \  'Gene': 'bass',
@@ -76,7 +76,7 @@
     '''
 
   'for loop enumerated dictionary':
-    'prefix': 'for_loop_enumerate_dct'
+    'prefix': 'dct_for_loop_enumerate'
     'body': '''
     for i, item in enumerate(my_items):
         print(f"{i}: {item}")
@@ -104,14 +104,14 @@
     '''
 
   'for loop dictionary':
-    'prefix': 'for_loop_dct'
+    'prefix': 'dct_for_loop'
     'body': '''
     for k, v in dct.items(): # rename dct, keys, and values to make them meaningful
         # process row
     '''
 
   'compare two dictionaries':
-    'prefix': 'compare_two_dictionaries'
+    'prefix': 'dct_compare_two_dictionaries'
     'body': '''
     for (k, v), (k2, v2) in zip(DCT1.items(), DCT2.items()):
         print(f'{k} {v} - {k2} {v2}')
@@ -125,21 +125,21 @@
     '''
 
   'sort dictionary by keys':
-    'prefix': 'sort_dct_by_values'
+    'prefix': 'dct_sort_by_keys'
     'body': '''
     for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
         # process row
     '''
 
   'sort dictionary by values':
-    'prefix': 'sort_dct_by_values'
+    'prefix': 'dct_sort_by_values'
     'body': '''
     for k, v in sorted(dct.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
         # process row
     '''
 
   'group dictionary by values':
-    'prefix': 'group_dct_by_values'
+    'prefix': 'dct_group_by_values'
     'body': '''
     dct = {}
     dct_grouped_by_values = {}
@@ -150,14 +150,14 @@
 
   'merge dictionaries':
     'prefix': 'merge_dictionaries'
-    'body': 'dct3 = {**dct1, **dct2}'
+    'body': 'DCT3 = {**DCT1, **DCT2}'
 
   'create set of values comprised of the differences between two dictionaries':
     'prefix': 'set_get_diff'
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
 
   'create a set comprised of the differences between two dictionaries\' keys':
-    'prefix': 'diff_dct_keys'
+    'prefix': 'dct_diff_keys'
     'body': 'DCT1.keys() - DCT2.keys()'
 
   'create a dictionary of items common to two dictionaries':
@@ -199,7 +199,7 @@
     '''
 
   'format datetime':
-    'prefix': 'format_datetime'
+    'prefix': 'datetime_format'
     'body': '''
     from datetime import datetime
 
@@ -211,7 +211,7 @@
     '''
 
   'format date':
-    'prefix': 'format_date'
+    'prefix': 'date_format'
     'body': '''
     from datetime import datetime
 
@@ -220,7 +220,7 @@
     '''
 
   'diff two dates minutes':
-    'prefix': 'diff_two_dates_minutes'
+    'prefix': 'dates_diff_minutes'
     'body': '''
     from datetime import datetime
 
@@ -251,7 +251,7 @@
     '''
 
   'open csv and edit headers':
-    'prefix': 'open_csv_edit_headers'
+    'prefix': 'csv_open_edit_headers'
     'body': '''
     with open(file) as f: # replace "file" with file name
     \    F_CSV = csv.reader(f)
@@ -263,7 +263,7 @@
     '''
 
   'write csv':
-    'prefix': 'write_csv'
+    'prefix': 'csv_write'
     'body': '''
     import csv\n
     HEADERS = # name headers\n
@@ -299,7 +299,7 @@
     '''
 
   'generate list of random numbers':
-    'prefix': 'list_of_random_numbers'
+    'prefix': 'lst_random_numbers'
     'body': '''
     import random\n
     random_numbers_lst = random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
@@ -336,7 +336,7 @@
     '''
 
   'get the difference between two dates':
-    'prefix': 'diff_two_dates'
+    'prefix': 'dates_diff_days'
     'body': '''
     import datetime
     from datetime import date
