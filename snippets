@@ -20,7 +20,7 @@
     'body': 'import re'
 
   'from datetime import date':
-    'prefix': 'from_datetime'
+    'prefix': 'import_date'
     'body': 'from datetime import date'
 
   'for loop list':
@@ -31,9 +31,9 @@
     '''
 
   'for loop through multiple lists':
-    'prefix': 'for_loop_multiple_lists'
+    'prefix': 'lst_for_loop_zip'
     'body': '''
-    for item1, item2 in zip(lst1, lst2):
+    for item1, item2 in zip(LST1, LST2):
         # process row
     '''
 
@@ -62,12 +62,12 @@
 
   'create dictionary':
     'prefix': 'dct_create'
-    'body': 'dct = {} # make dictinary name meaningful'
+    'body': 'DCT = {} # make dictinary name meaningful'
 
   'create test dictionary':
     'prefix': 'dct_create_test'
     'body': '''
-    dct = {
+    DCT = {
       \  'Gene': 'bass',
       \  'Paul': 'guitar',
       \  'Peter': 'drums',
@@ -79,11 +79,25 @@
     'prefix': 'dct_for_loop_enumerate'
     'body': '''
     for i, item in enumerate(my_items):
-        print(f"{i}: {item}")
+        print(f'{i}: {item}')
+    '''
+
+  'for loop dictionary':
+    'prefix': 'dct_for_loop'
+    'body': '''
+    for k, v in DCT.items(): # rename dct, keys, and values to make them meaningful
+        # process row
+    '''
+
+  'compare two dictionaries':
+    'prefix': 'dct_compare_two_dictionaries'
+    'body': '''
+    for (k, v), (k2, v2) in zip(DCT1.items(), DCT2.items()):
+        print(f'{k} {v} - {k2} {v2}')
     '''
 
   'for loop indexed':
-    'prefix': 'for_loop_indexed'
+    'prefix': 'indexed_for_loop'
     'body': '''
     for i in range(a, n, s): # a - start, n - stop, s - step
         # process i
@@ -103,49 +117,35 @@
         # process row
     '''
 
-  'for loop dictionary':
-    'prefix': 'dct_for_loop'
-    'body': '''
-    for k, v in dct.items(): # rename dct, keys, and values to make them meaningful
-        # process row
-    '''
-
-  'compare two dictionaries':
-    'prefix': 'dct_compare_two_dictionaries'
-    'body': '''
-    for (k, v), (k2, v2) in zip(DCT1.items(), DCT2.items()):
-        print(f'{k} {v} - {k2} {v2}')
-    '''
-
   'remove @ and everything after':
     'prefix': 'remove_@'
     'body': '''
     for item in LST:
-        print(item[:item.find("@")])
+        print(item[:item.find('@')])
     '''
 
   'sort dictionary by keys':
     'prefix': 'dct_sort_by_keys'
     'body': '''
-    for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
+    for k, v in sorted(DCT.items()): # rename keys and values to make them meaningful
         # process row
     '''
 
   'sort dictionary by values':
     'prefix': 'dct_sort_by_values'
     'body': '''
-    for k, v in sorted(dct.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
+    for k, v in sorted(DCT.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
         # process row
     '''
 
   'group dictionary by values':
     'prefix': 'dct_group_by_values'
     'body': '''
-    dct = {}
-    dct_grouped_by_values = {}
+    DCT = {}
+    DCT_GROUPED_BY_VALUES = {}
 
-    for k, v in sorted(dct.items()):
-        dct_grouped_by_values.setdefault(v, []).append(k)
+    for k, v in sorted(DCT.items()):
+        DCT_GROUPED_BY_VALUES.setdefault(v, []).append(k)
     '''
 
   'merge dictionaries':
@@ -161,11 +161,11 @@
     'body': 'DCT1.keys() - DCT2.keys()'
 
   'create a dictionary of items common to two dictionaries':
-    'prefix': 'common_items_dct'
+    'prefix': 'dct_items_common_to_two_dictionaries'
     'body': 'COMMON_ITEMS = dict(DCT1.items() & DCT2.items())'
 
   'create set of values common to two sets':
-    'prefix': 'intersection'
+    'prefix': 'set_items_common_to_two_sets'
     'body': '''
     set1 = {'apples', 'oranges', 'bananas'} # fruits as placeholder values
     set2 = {'bananas', 'tangerines', 'lemons'}\n
@@ -174,7 +174,7 @@
 
   'return lambda':
     'prefix': 'return'
-    'body': "RTN = lambda: '\\\\n'"
+    'body': 'RTN = lambda: \'\\\\n\''
 
   'print return':
     'prefix': 'print_return'
@@ -219,7 +219,7 @@
     print(date.date())
     '''
 
-  'diff two dates minutes':
+  'get difference between two dates in minutes':
     'prefix': 'dates_diff_minutes'
     'body': '''
     from datetime import datetime
@@ -234,12 +234,12 @@
     '''
 
   'open csv':
-    'prefix': 'open_csv'
+    'prefix': 'csv_open'
     'body': '''
     import csv
     from collections import namedtuple\n
-    dct = {}\n
-    def open_csv(file, dct):
+    DCT = {}\n
+    def open_csv(file, DCT):
     \    """ open csv and populate a dictionary with its contents """
     \    with open(file) as csv_file:
     \        F_CSV = csv.reader(csv_file)
@@ -247,7 +247,7 @@
     \        CSV_ROW = namedtuple(\'Row\', COLUMN_HEADINGS)
     \        for rows in F_CSV:
     \            row = CSV_ROW(*rows)
-    \            dct[row.key] = row.value
+    \            DCT[row.key] = row.value
     '''
 
   'open csv and edit headers':
@@ -269,10 +269,10 @@
     HEADERS = # name headers\n
     def write_to_csv(name_of_file, dct):
     \    """ write dictionary to csv """
-    \    with open(name_of_file, "w") as out_file:
+    \    with open(name_of_file, 'w') as out_file:
     \        out_csv = csv.writer(out_file)
     \        out_csv.writerow(HEADERS) # define HEADERS before running function
-    \        for k, v in dct.items(): # rename keys and values to make to make them meaningful
+    \        for k, v in DCT.items(): # rename keys and values to make to make them meaningful
     \            keys_values = (k, v)
     \            out_csv.writerow(keys_values)
     '''
@@ -283,9 +283,9 @@
     def switch_case(argument):
         """ switch case statement """
         switcher = {
-            "a": "option_1",
-            "b": "option_2",
-            "c": "option_3",
+            'a': 'option_1',
+            'b': 'option_2',
+            'c': 'option_3',
             }
         return switcher.get(argument, "nothing")
     '''
@@ -293,7 +293,7 @@
   'write to text file':
     'prefix': 'write_to_txt'
     'body': '''
-    FILE = open("file.txt", "w")\n
+    FILE = open('file.txt', 'w')\n
     for item in lst:
         FILE.write(item)
     '''
@@ -315,9 +315,9 @@
     for email in lst: # rename lst to something meaningful
     \    match = re.search(r'[\w.-]+@[\w.-]+', email)
     \    if match:
-    \        print("valid")
+    \        print('valid')
     \    else:
-    \        print("invalid")
+    \        print('invalid')
     '''
 
   'check user input':
@@ -325,17 +325,17 @@
     'body': '''
     while True:
         try:
-            NUMBER_OF_GUESTS = int(input("How many ice cream sandwiches would "
-                                         "you like? ")) # replace "ice cream sandwiches"
-            if NUMBER_OF_GUESTS > 12: # replace "12"
-                print("please enter a number less than or equal to twelve ")
+            NUMBER_OF_GUESTS = int(input('How many ice cream sandwiches would '
+                                         'you like? ')) # replace "ice cream sandwiches"
+            if NUMBER_OF_GUESTS > 12: # replace '12'
+                print('please enter a number less than or equal to twelve ')
             else:
                 break
         except ValueError:
             print("Please enter an integer.")
     '''
 
-  'get the difference between two dates':
+  'get the difference between two dates in days':
     'prefix': 'dates_diff_days'
     'body': '''
     import datetime
