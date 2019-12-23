@@ -75,11 +75,11 @@
     }
     '''
 
-  'for loop enumerated dictionary':
+  'loop through dictionary enumerating items starting at 1':
     'prefix': 'dct_for_loop_enumerate'
     'body': '''
-    for i, item in enumerate(my_items):
-        print(f'{i}: {item}')
+    for i, (k, v) in enumerate(DCT.items(), 1):
+        print(f'{i} {k} {v}')
     '''
 
   'for loop dictionary':
