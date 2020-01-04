@@ -237,6 +237,38 @@
     print("{:.2f}".format(DIFF_MINUTES))
     '''
 
+  'get the difference between two dates in days':
+    'prefix': 'dates_diff_days'
+    'body': '''
+    import datetime
+    from datetime import date
+
+    # calculate how between a given date and today
+    TODAY = date.today()
+    A_DATE = date(2019, 1, 1) # replace with whatever date you're working with
+    DELTA = TODAY - A_DATE
+    DAYS_BETWEEN = DELTA.days
+
+    print(A_DATE)
+    print(DAYS_BETWEEN)
+    '''
+
+  'get the difference between two dates in weeks':
+    'prefix': 'diff_days_weeks'
+    'body': '''
+    import datetime
+    from datetime import date
+
+    # calculate how between a given date and today
+    TODAY = date.today()
+    A_DATE = date(2019, 1, 1) # replace with whatever date you're working with
+    DELTA = TODAY - A_DATE
+    WEEKS_BETWEEN = DELTA.days / 7
+
+    print(A_DATE)
+    print(int(WEEKS_BETWEEN))
+    '''
+
   'open csv':
     'prefix': 'csv_open'
     'body': '''
@@ -337,22 +369,6 @@
                 break
         except ValueError:
             print("Please enter an integer.")
-    '''
-
-  'get the difference between two dates in days':
-    'prefix': 'dates_diff_days'
-    'body': '''
-    import datetime
-    from datetime import date
-
-    # calculate how between a given date and today
-    TODAY = date.today()
-    A_DATE = date(2020, 3, 17) # replace with whatever date you're working with
-    DELTA = A_DATE - TODAY
-    DAYS_BETWEEN = DELTA.days
-
-    print(A_DATE)
-    print(DAYS_BETWEEN)
     '''
 
   'format float':
