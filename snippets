@@ -9,6 +9,13 @@
     )
     '''
 
+  'func main':
+    'prefix': 'func_main'
+    'body': '''
+    func main() {
+    }
+    '''
+
 '.source.python':
   'doc string':
     'prefix': 'doc_string'
@@ -37,6 +44,15 @@
   'from itertools import cycle':
     'prefix': 'import_cycle'
     'body': 'from itertools import cycle'
+
+  'permutations':
+    'prefix': 'permutations'
+    'body': '''
+    import itertools
+
+    for p in itertools.permutations('abcd'): # replace 'abcd'
+        print(p)
+    '''
 
   'for loop list':
     'prefix': 'lst_for_loop'
