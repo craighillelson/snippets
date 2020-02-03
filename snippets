@@ -54,9 +54,41 @@
         print(p)
     '''
 
+  'augmented assignment - add':
+    'prefix': 'aug_add'
+    'body': '+='
+
+  'augmented assignment - subtract':
+    'prefix': 'aug_sub'
+    'body': '-='
+
+  'augmented assignment - multiply':
+    'prefix': 'aug_mult'
+    'body': '*='
+
+  'augmented assignment - divide':
+    'prefix': 'aug_div'
+    'body': '/='
+
+  'augmented assignment - modulus':
+    'prefix': 'aug_mod'
+    'body': '%='
+
   'list - create':
     'prefix': 'lst_create'
     'body': 'lst = []'
+
+  'list - append':
+    'prefix': 'lst - append'
+    'body': 'lst.append(a) # rename "lst" and "a"'
+
+  'list - remove':
+    'prefix': 'lst - remove'
+    'body': 'lst.remove(a) # rename "lst" and "a"'
+
+  'list - insert':
+    'prefix': 'lst - insert'
+    'body': 'lst.insert(1, a) # replace "1" with desired list index and "a" with appropriate variable'
 
   'list - for loop':
     'prefix': 'lst_for_loop'
