@@ -22,27 +22,27 @@
     'body': '""" __doc__ """'
 
   'import csv':
-    'prefix': 'import_csv'
+    'prefix': 'csv'
     'body': 'import csv'
 
   'import namedtuple':
-    'prefix': 'import_namedtuple'
+    'prefix': 'namedtuple'
     'body': 'from collections import namedtuple'
 
   'import random':
-    'prefix': 'import_random'
+    'prefix': 'random'
     'body': 'import random'
 
   'import re':
-    'prefix': 'import_re'
+    'prefix': 're'
     'body': 'import re'
 
   'from datetime import date':
-    'prefix': 'import_date'
+    'prefix': 'date'
     'body': 'from datetime import date'
 
   'from itertools import cycle':
-    'prefix': 'import_cycle'
+    'prefix': 'cycle'
     'body': 'from itertools import cycle'
 
   'permutations':
@@ -54,25 +54,32 @@
         print(p)
     '''
 
-  'for loop list':
+  'list - create':
+    'prefix': 'lst_create'
+    'body': 'lst = []'
+
+  'list - for loop':
     'prefix': 'lst_for_loop'
     'body': '''
     for x in lst: # rename variable to make it meaningful
         # process row
     '''
 
-  'for loop through multiple lists':
+  'list - for loop enumerated starting at 1':
+    'prefix': 'lst_for_loop_enumerated'
+    'body': '''
+    for i, x in enumerate(lst, 1): # rename variable to make it meaningful
+        # process row
+    '''
+
+  'list - for loop through multiple lists':
     'prefix': 'lst_for_loop_zip'
     'body': '''
     for item1, item2 in zip(LST1, LST2):
         # process row
     '''
 
-  'create list':
-    'prefix': 'lst_create'
-    'body': 'lst = []'
-
-  'create test list':
+  'list - create test list':
     'prefix': 'lst_create_test'
     'body': '''
     lst = [
@@ -83,9 +90,23 @@
     ]
     '''
 
-  'get index of an element in a list':
+  'list - get index of an element in a list':
     'prefix': 'lst_get_index'
     'body': 'lst.index(element) # rename lst'
+
+  'list - if in list':
+    'prefix': 'if_in'
+    'body': '''
+    if x in: # rename variable to make it meaningful
+        # process row
+    '''
+
+  'list - if not in list':
+    'prefix': 'if_not_in'
+    'body': '''
+    if not in x:
+        # process row
+    '''
 
   'create empty set':
     'prefix': 'set_create'
@@ -138,27 +159,6 @@
         # process i
     '''
 
-  'if in list':
-    'prefix': 'if_in'
-    'body': '''
-    if x in: # rename variable to make it meaningful
-        # process row
-    '''
-
-  'if not in list':
-    'prefix': 'if_not_in'
-    'body': '''
-    if not in x:
-        # process row
-    '''
-
-  'remove @ and everything after':
-    'prefix': 'remove_@'
-    'body': '''
-    for item in LST:
-        print(item[:item.find('@')])
-    '''
-
   'sort dictionary by keys':
     'prefix': 'dct_sort_by_keys'
     'body': '''
@@ -205,6 +205,13 @@
     set1 = {'apples', 'oranges', 'bananas'} # fruits as placeholder values
     set2 = {'bananas', 'tangerines', 'lemons'}\n
     intersection_set = set2.intersection(set1)
+    '''
+
+  'remove @ and everything after':
+    'prefix': 'remove_@'
+    'body': '''
+    for item in LST:
+        print(item[:item.find('@')])
     '''
 
   'return lambda':
@@ -365,7 +372,7 @@
         FILE.write(item)
     '''
 
-  'generate list of random numbers':
+  'list - generate list of random numbers':
     'prefix': 'lst_random_numbers'
     'body': '''
     import random\n
