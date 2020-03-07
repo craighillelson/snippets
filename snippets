@@ -491,6 +491,17 @@
     'prefix': 'run_python_file'
     'body': 'exec(open(file).read()) # rename "file"'
 
+  'list files of a certain type in a directory':
+    'prefix': 'files - list files of a certain type in a directory'
+    'body': '''
+    import os
+
+    files = [file for file in os.listdir() if file.endswith('.py')] # replace '.py' with selected file type
+
+    for i in files:
+        print(i)
+    '''
+
 '.source.html':
   'html for w3 js exercises':
     'prefix': 'html_w3'
