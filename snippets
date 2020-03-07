@@ -461,8 +461,9 @@
     'prefix': 'word_counter'
     'body': '''
     from collections import Counter
+    words = [] # populate list
     word_counts = Counter(words)
-    words_counts = word_counts.most_common()
+    words_counts = word_counts.most_common() # include an integer in the most_common function to specify the number of results
     for word in words_counts:
     \    print(f"{word[0]}\t{word[1]}")
     '''
