@@ -75,30 +75,30 @@
     'body': '%='
 
   'list - create':
-    'prefix': 'lst_create'
+    'prefix': 'list - create'
     'body': 'lst = []'
 
   'list - append':
-    'prefix': 'lst - append'
+    'prefix': 'list - append'
     'body': 'lst.append(a) # rename "lst" and "a"'
 
   'list - remove':
-    'prefix': 'lst - remove'
+    'prefix': 'list - remove'
     'body': 'lst.remove(a) # rename "lst" and "a"'
 
   'list - insert':
-    'prefix': 'lst - insert'
+    'prefix': 'list - insert'
     'body': 'lst.insert(1, item) # replace "1" with desired list index and "item" with appropriate variable'
 
   'list - for loop':
-    'prefix': 'lst_for_loop'
+    'prefix': 'list_for_loop'
     'body': '''
     for x in lst: # rename variable to make it meaningful
         # process row
     '''
 
   'list - for loop enumerated starting at 1':
-    'prefix': 'lst_for_loop_enumerated'
+    'prefix': 'list - for loop enumerated'
     'body': '''
     for i, x in enumerate(lst, 1): # rename variable to make it meaningful
         # process row
@@ -112,7 +112,7 @@
     '''
 
   'list - create test list':
-    'prefix': 'lst_create_test'
+    'prefix': 'list - create test list'
     'body': '''
     lst = [
       \  'Gene',
@@ -123,37 +123,56 @@
     '''
 
   'list - get index of an element in a list':
-    'prefix': 'lst_get_index'
+    'prefix': 'list - get index'
     'body': 'lst.index(element) # rename lst'
 
   'list - if in list':
-    'prefix': 'if_in'
+    'prefix': 'list - if in'
     'body': '''
     if x in: # rename variable to make it meaningful
         # process row
     '''
 
   'list - if not in list':
-    'prefix': 'if_not_in'
+    'prefix': 'list - if not in'
     'body': '''
     if not in x:
         # process row
     '''
 
+  'list - group by field':
+    'prefix': 'list of dictionaries - groupby'
+    'body': '''
+    from itertools import groupby
+
+    rows = [
+        {'member': 'Gene', 'instrument': 'bass'},
+        {'member': 'Paul', 'instrument': 'guitar'},
+        {'member': 'Peter', 'instrument': 'drums'},
+        {'member': 'Ace', 'instrument': 'lead guitar'},
+    ]
+
+    rows.sort(key=lambda r: r['instrument'])
+    for instrument, items in groupby(rows, key=lambda r: r['instrument']):
+        print(instrument)
+        for i in items:
+            print('    ', i)
+    '''
+
   'create empty set':
-    'prefix': 'set_create'
+    'prefix': 'set - create'
     'body': 's = set() # rename set to make it meaningful'
 
   'add item to set':
-    'prefix': 'set_add_item'
+    'prefix': 'set - add item'
     'body': 'set.add(\'item\') # rename \'set\' and \'item\' to make them meaningful'
 
   'create dictionary':
-    'prefix': 'dct_create'
+    'prefix': 'dct - create'
     'body': 'DCT = {} # make dictinary name meaningful'
 
   'create test dictionary':
-    'prefix': 'dct_create_test'
+    'prefix': 'dct - create test'
     'body': '''
     DCT = {
       \  'Gene': 'bass',
@@ -164,7 +183,7 @@
     '''
 
   'delete item':
-    'prefix': 'dct_del_item'
+    'prefix': 'dct - delete item'
     'body': 'del DCT[key] # update DCT and key'
 
   'loop through dictionary enumerating items starting at 1':
@@ -175,42 +194,42 @@
     '''
 
   'for loop dictionary':
-    'prefix': 'dct_for_loop'
+    'prefix': 'dct - for loop'
     'body': '''
     for k, v in DCT.items(): # rename dct, keys, and values to make them meaningful
         # process row
     '''
 
   'compare two dictionaries':
-    'prefix': 'dct_compare_two_dictionaries'
+    'prefix': 'dct - compare two dictionaries'
     'body': '''
     for (k, v), (k2, v2) in zip(DCT1.items(), DCT2.items()):
         print(f'{k} {v} - {k2} {v2}')
     '''
 
   'for loop indexed':
-    'prefix': 'indexed_for_loop'
+    'prefix': 'for loop - indexed'
     'body': '''
     for i in range(a, n, s): # a - start, n - stop, s - step
         # process i
     '''
 
   'sort dictionary by keys':
-    'prefix': 'dct_sort_by_keys'
+    'prefix': 'dct - sort by keys'
     'body': '''
     for k, v in sorted(DCT.items()): # rename keys and values to make them meaningful
         # process row
     '''
 
   'sort dictionary by values':
-    'prefix': 'dct_sort_by_values'
+    'prefix': 'dct - sort by values'
     'body': '''
     for k, v in sorted(DCT.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
         # process row
     '''
 
   'group dictionary by values':
-    'prefix': 'dct_group_by_values'
+    'prefix': 'dct - group by values'
     'body': '''
     DCT = {}
     DCT_GROUPED_BY_VALUES = {}
@@ -220,7 +239,7 @@
     '''
 
   'merge dictionaries':
-    'prefix': 'merge_dictionaries'
+    'prefix': 'dct - merge dictionaries'
     'body': 'DCT3 = {**DCT1, **DCT2}'
 
   'create set of values comprised of the differences between two dictionaries':
@@ -228,11 +247,11 @@
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
 
   'create a set comprised of the differences between two dictionaries\' keys':
-    'prefix': 'dct_diff_keys'
+    'prefix': 'dct - diff keys'
     'body': 'DCT1.keys() - DCT2.keys()'
 
   'create a dictionary of items common to two dictionaries':
-    'prefix': 'dct_items_common_to_two_dictionaries'
+    'prefix': 'dct - items common to two dictionaries'
     'body': 'COMMON_ITEMS = dict(DCT1.items() & DCT2.items())'
 
   'create set of values common to two sets':
@@ -246,7 +265,7 @@
   'remove @ and everything after':
     'prefix': 'remove_@'
     'body': '''
-    for item in LST:
+    for item in lst:
         print(item[:item.find('@')])
     '''
 
