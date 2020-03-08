@@ -21,10 +21,6 @@
     'prefix': 'doc_string'
     'body': '""" __doc__ """'
 
-  'import csv':
-    'prefix': 'csv'
-    'body': 'import csv'
-
   'import namedtuple':
     'prefix': 'namedtuple'
     'body': 'from collections import namedtuple'
@@ -382,6 +378,7 @@
   'open csv and edit headers':
     'prefix': 'csv_open_edit_headers'
     'body': '''
+    import csv
     with open(file) as f: # replace "file" with file name
     \    F_CSV = csv.reader(f)
     \    HEADERS = [re.sub('[^a-zA-Z_]', '_', h) for h in next(F_CSV)]
@@ -399,7 +396,7 @@
     'prefix': 'csv_write'
     'body': '''
     import csv\n
-    HEADERS = # name headers\n
+    HEADERS = [] # name headers\n
     def write_to_csv(name_of_file, dct):
     \    """ write dictionary to csv """
     \    with open(name_of_file, 'w') as out_file:
