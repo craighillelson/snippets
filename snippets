@@ -530,6 +530,20 @@
     'prefix': 'range'
     'body': 'min(lst), max(lst) # replace lst'
 
+  'find mean':
+    'prefix': 'mean'
+    'body': '''
+    import statistics
+    statistics.mean([])
+    '''
+
+  'find median':
+    'prefix': 'median'
+    'body': '''
+    import statistics
+    statistics.median([])
+    '''
+
 '.source.html':
   'html for w3 js exercises':
     'prefix': 'html_w3'
@@ -540,13 +554,11 @@
     \t\t<meta charset="utf-8">
     \t\t<title>$3</title>
     \t</head>
-
     \t<body>
     \t\t$4<h2>JavaScript</h2>
     \t\t<p></p>
     \t\t<script>
     \t\t</script>
-
     \t</body>
     </html>
     '''
