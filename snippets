@@ -21,6 +21,10 @@
     'prefix': 'doc'
     'body': '""" __doc__ """'
 
+  'concatenate strings':
+    'prefix': 'str - concatenate'
+    'body': 'a + b'
+
   'import namedtuple':
     'prefix': 'namedtuple'
     'body': 'from collections import namedtuple'
@@ -144,7 +148,7 @@
     '''
 
   'list - group by field':
-    'prefix': 'list of dictionaries - groupby'
+    'prefix': 'list - list of dictionaries - groupby'
     'body': '''
     from itertools import groupby
 
@@ -163,7 +167,7 @@
     '''
 
   'list - iterate through a list and apply a conditional statement to each item':
-    'prefix': 'iterate - test'
+    'prefix': 'list - iterate and test'
     'body': '''
     for word in word_list:
         if # condition:
@@ -256,7 +260,7 @@
     'body': 'DCT3 = {**DCT1, **DCT2}'
 
   'create set of values comprised of the differences between two dictionaries':
-    'prefix': 'set get diff'
+    'prefix': 'set - get diff'
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
 
   'create a set comprised of the differences between two dictionaries\' keys':
@@ -320,8 +324,8 @@
     print(date_formatted)
     '''
 
-  'format date':
-    'prefix': 'date_format'
+  'formats date as YYYY-MM-DD':
+    'prefix': 'date format'
     'body': '''
     from datetime import datetime
 
