@@ -18,7 +18,7 @@
 
 '.source.python':
   'doc string':
-    'prefix': 'doc_string'
+    'prefix': 'doc'
     'body': '""" __doc__ """'
 
   'import namedtuple':
@@ -41,7 +41,7 @@
     'prefix': 'cycle'
     'body': 'from itertools import cycle'
 
-  'permutations':
+  'find all permutations of a string':
     'prefix': 'permutations'
     'body': '''
     import itertools
@@ -51,63 +51,70 @@
     '''
 
   'augmented assignment - add':
-    'prefix': 'aug_add'
+    'prefix': 'add'
     'body': '+='
 
   'augmented assignment - subtract':
-    'prefix': 'aug_sub'
+    'prefix': 'subtract'
     'body': '-='
 
   'augmented assignment - multiply':
-    'prefix': 'aug_mult'
+    'prefix': 'multiply'
     'body': '*='
 
   'augmented assignment - divide':
-    'prefix': 'aug_div'
+    'prefix': 'divide'
     'body': '/='
 
   'augmented assignment - modulus':
-    'prefix': 'aug_mod'
+    'prefix': 'modulus'
     'body': '%='
 
-  'list - create':
+  'create':
     'prefix': 'list - create'
     'body': 'lst = []'
 
-  'list - append':
+  'append':
     'prefix': 'list - append'
     'body': 'lst.append(a) # rename "lst" and "a"'
 
-  'list - remove':
+  'remove':
     'prefix': 'list - remove'
     'body': 'lst.remove(a) # rename "lst" and "a"'
 
-  'list - insert':
+  'insert':
     'prefix': 'list - insert'
     'body': 'lst.insert(1, item) # replace "1" with desired list index and "item" with appropriate variable'
 
-  'list - for loop':
-    'prefix': 'list_for_loop'
+  'iterate':
+    'prefix': 'list - iterate'
     'body': '''
     for x in lst: # rename variable to make it meaningful
         # process row
     '''
 
-  'list - for loop enumerated starting at 1':
-    'prefix': 'list - for loop enumerated'
+  'iterate in reverse':
+    'prefix': 'list - iterate in reverse'
+    'body': '''
+    for x in reversed(lst): # rename variable to make it meaningful
+        # process row
+    '''
+
+  'enumerated for loop starting at 1':
+    'prefix': 'list - enumerated for loop'
     'body': '''
     for i, x in enumerate(lst, 1): # rename variable to make it meaningful
         # process row
     '''
 
-  'list - for loop through multiple lists':
-    'prefix': 'lst_for_loop_zip'
+  'zip lists':
+    'prefix': 'lists zip'
     'body': '''
     for item1, item2 in zip(LST1, LST2):
         # process row
     '''
 
-  'list - create test list':
+  'create test list':
     'prefix': 'list - create test list'
     'body': '''
     lst = [
@@ -118,21 +125,21 @@
     ]
     '''
 
-  'list - get index of an element in a list':
+  'get index of an element in a list':
     'prefix': 'list - get index'
     'body': 'lst.index(element) # rename lst'
 
-  'list - if in list':
-    'prefix': 'list - if in'
+  'if in':
+    'prefix': 'list - if variable in list'
     'body': '''
     if x in: # rename variable to make it meaningful
         # process row
     '''
 
-  'list - if not in list':
-    'prefix': 'list - if not in'
+  'if not in':
+    'prefix': 'list - if variable not in list'
     'body': '''
-    if not in x:
+    if x not in lst:
         # process row
     '''
 
@@ -155,7 +162,7 @@
             print('    ', i)
     '''
 
-  'iterate through a list and apply a conditional statement to each item':
+  'list - iterate through a list and apply a conditional statement to each item':
     'prefix': 'iterate - test'
     'body': '''
     for word in word_list:
@@ -178,7 +185,7 @@
     'body': 'DCT = {} # make dictinary name meaningful'
 
   'create test dictionary':
-    'prefix': 'dct - create test'
+    'prefix': 'dct - create test dictionary'
     'body': '''
     DCT = {
       \  'Gene': 'bass',
@@ -193,7 +200,7 @@
     'body': 'del DCT[key] # update DCT and key'
 
   'loop through dictionary enumerating items starting at 1':
-    'prefix': 'dct_for_loop_enumerate'
+    'prefix': 'dct - enumerated for loop'
     'body': '''
     for i, (k, v) in enumerate(DCT.items(), 1):
         print(f'{i} {k} {v}')
@@ -249,7 +256,7 @@
     'body': 'DCT3 = {**DCT1, **DCT2}'
 
   'create set of values comprised of the differences between two dictionaries':
-    'prefix': 'set_get_diff'
+    'prefix': 'set get diff'
     'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
 
   'create a set comprised of the differences between two dictionaries\' keys':
@@ -525,11 +532,11 @@
     'prefix': 'any'
     'body': 'any(lst) # replace lst'
 
-  'highest value in a list':
+  'find highest value in a list':
     'prefix': 'max'
     'body': 'max(lst) # replace lst'
 
-  'lowest value in a list':
+  'find lowest value in a list':
     'prefix': 'min'
     'body': 'min(lst) # replace lst'
 
