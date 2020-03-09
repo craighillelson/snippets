@@ -330,7 +330,7 @@
     '''
 
   'get difference between two dates in minutes':
-    'prefix': 'dates_diff_minutes'
+    'prefix': 'dates diff minutes'
     'body': '''
     from datetime import datetime
 
@@ -344,7 +344,7 @@
     '''
 
   'get the difference between two dates in days':
-    'prefix': 'dates_diff_days'
+    'prefix': 'dates diff days'
     'body': '''
     import datetime
     from datetime import date
@@ -360,7 +360,7 @@
     '''
 
   'get the difference between two dates in weeks':
-    'prefix': 'diff_days_weeks'
+    'prefix': 'dates diff weeks'
     'body': '''
     import datetime
     from datetime import date
@@ -393,7 +393,7 @@
     '''
 
   'open csv and edit headers':
-    'prefix': 'csv_open_edit_headers'
+    'prefix': 'csv open edit headers'
     'body': '''
     import csv
     with open(file) as f: # replace "file" with file name
@@ -410,7 +410,7 @@
     'body': 'df = pd.read_csv(\'data.csv\', index_col=0)'
 
   'write csv':
-    'prefix': 'csv_write'
+    'prefix': 'csv write'
     'body': '''
     import csv\n
     HEADERS = [] # name headers\n
@@ -425,7 +425,7 @@
     '''
 
   'switch function':
-    'prefix': 'switch_function'
+    'prefix': 'switch'
     'body': '''
     def switch_case(argument):
         """ switch case statement """
@@ -438,15 +438,15 @@
     '''
 
   'write to text file':
-    'prefix': 'write_to_txt'
+    'prefix': 'text file'
     'body': '''
     FILE = open('file.txt', 'w')\n
     for item in lst:
         FILE.write(item)
     '''
 
-  'list - generate list of random numbers':
-    'prefix': 'lst_random_numbers'
+  'generate a list of random numbers':
+    'prefix': 'list - random'
     'body': '''
     import random\n
     random_numbers_lst = random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
@@ -482,16 +482,16 @@
             print("Please enter an integer.")
     '''
 
-  'format float':
-    'prefix': 'format_float'
+  'format a number as a float':
+    'prefix': 'format float'
     'body': '''
     num = 22/7 # set num to any value you want
     num = float(num)
     print('{0:.2f}'.format(num))
     '''
 
-  'word counter':
-    'prefix': 'word_counter'
+  'count occurrences of a word in a list':
+    'prefix': 'word counter'
     'body': '''
     from collections import Counter
     words = [] # populate list
@@ -516,12 +516,12 @@
         print(i)
     '''
 
-  'text - startswith':
-    'prefix': 'text - startswith'
+  'string starts with':
+    'prefix': 'startswith'
     'body': 'text.startswith(\'foo\') # replace \'text\' and \'foo\''
 
-  'text - endswith':
-    'prefix': 'text - endswith'
+  'string ends with':
+    'prefix': 'endswith'
     'body': 'text.endswith(\'foo\') # replace \'text\' and \'foo\''
 
   'all elements in a list':
