@@ -25,6 +25,15 @@
     'prefix': 'str - concatenate'
     'body': 'a + b'
 
+  'find string regardless of case':
+    'prefix': 'str - find match regardless of case'
+    'body':'''
+    import re
+
+    text = 'python, PYTHON, Python'
+    text_match = re.findall('python', text, flags=re.IGNORECASE))
+    '''
+
   'import namedtuple':
     'prefix': 'namedtuple'
     'body': 'from collections import namedtuple'
