@@ -296,11 +296,11 @@
     '''
 
   'return lambda':
-    'prefix': 'return'
+    'prefix': 'lambda return'
     'body': 'RTN = lambda: \'\\\\n\''
 
   'print return':
-    'prefix': 'print_return'
+    'prefix': 'print'
     'body': 'print(RTN())'
 
   'get today':
@@ -311,7 +311,7 @@
     '''
 
   'format today':
-    'prefix': 'today_format'
+    'prefix': 'today format'
     'body': '''
     from datetime import date
     from datetime import datetime
@@ -321,8 +321,8 @@
     print(today_formatted)
     '''
 
-  'format datetime':
-    'prefix': 'datetime_format'
+  'format datetime object':
+    'prefix': 'datetime format'
     'body': '''
     from datetime import datetime
 
@@ -333,7 +333,7 @@
     print(date_formatted)
     '''
 
-  'formats date as YYYY-MM-DD':
+  'format date as YYYY-MM-DD':
     'prefix': 'date format'
     'body': '''
     from datetime import datetime
@@ -389,7 +389,7 @@
     '''
 
   'open csv':
-    'prefix': 'csv_open'
+    'prefix': 'csv open'
     'body': '''
     import csv
     from collections import namedtuple\n
