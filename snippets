@@ -419,8 +419,12 @@
     '''
 
   'open csv with pandas':
-    'prefix': 'pandas_csv_open'
-    'body': 'df = pd.read_csv(\'data.csv\', index_col=0)'
+    'prefix': 'pandas csv open'
+    'body': '''
+      import pandas as pd
+
+      df = pd.read_csv(\'data.csv\', index_col=0)
+    '''
 
   'write csv':
     'prefix': 'csv write'
@@ -501,6 +505,14 @@
     num = 22/7 # set num to any value you want
     num = float(num)
     print('{0:.2f}'.format(num))
+    '''
+
+  'format to include thousands separator':
+    'prefix': 'format thousands separator'
+    'body': '''
+    num = 1234.567 # replace 1234.567
+    num_fmt = format(x,  '0,.1f')
+    print(num_fmt)
     '''
 
   'count occurrences of a word in a list':
