@@ -288,6 +288,20 @@
     intersection_set = set2.intersection(set1)
     '''
 
+  'turn a list of tuples into dictinary':
+    'prefix': 'tuples to dict'
+    'body': '''
+    def tuple_to_dct():
+        """
+        Create a dictionary from a list of tuples, making the first elements the
+        keys and the second elements the values.
+        """
+        for x, y in lst:
+            dct.setdefault(x, []).append(y)
+
+        return dct
+    '''
+
   'remove @ and everything after':
     'prefix': 'remove_@'
     'body': '''
@@ -451,7 +465,7 @@
             'b': 'option_2',
             'c': 'option_3',
             }
-        return switcher.get(argument, "nothing")
+        return switcher.get(argument, 'nothing')
     '''
 
   'write to text file':
