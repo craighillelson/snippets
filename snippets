@@ -485,7 +485,14 @@
 
   'search for strings containing a specified string':
     'prefix': 'search'
-    'body': 'result = re.search("dundermifflin.com", email) # replace "dundermifflin.com"'
+    'body': '''
+    domain = 'dundermifflin.com'
+    email = 'dwight@dundermifflin.com'
+    if 'dundermifflin.com' in email:
+        print(f'contains {domain}')
+    else:
+        print(f'does not contain {domain}')
+    '''
 
   'validate email addresses':
     'prefix': 'validate_email_addresses'
