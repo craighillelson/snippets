@@ -516,6 +516,10 @@
     'prefix': 'prompt user'
     'body': '''
     def prompt_user_for_number():
+        """
+        Prompt user for the number of most frequently occurring items
+        they'd like to see, validating that they input an integer.
+        """
         import pyinputplus as pyip
 
         print("Enter the number of most frequently occurring items you'd like "
