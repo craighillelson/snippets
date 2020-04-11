@@ -121,7 +121,7 @@
     '''
 
   'zip lists':
-    'prefix': 'lists zip'
+    'prefix': 'lists - zip'
     'body': '''
     for item1, item2 in zip(LST1, LST2):
         # process row
@@ -479,8 +479,11 @@
   'generate a list of random numbers':
     'prefix': 'list - random'
     'body': '''
-    import random\n
-    random_numbers_lst = random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
+    def generate_list_of_random_numbers():
+        """Generate a list of random numbers within specifiied paramaters."""
+        import random
+
+        return random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
     '''
 
   'search for strings containing a specified string':
