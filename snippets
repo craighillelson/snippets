@@ -512,6 +512,14 @@
     domain = email_adddress.split('@')[1] # replace index '1' with '0' to get the username
     '''
 
+  'prompt user':
+    'prefix': 'prompt user for number'
+    'body': '''
+    import pyinputplus as pyip
+
+    num = pyip.inputInt(prompt="Enter the number you'd like to see. \n> ")
+    '''
+
   'check user input':
     'prefix': 'check_user_input'
     'body': '''
