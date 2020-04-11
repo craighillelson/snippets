@@ -512,12 +512,15 @@
     domain = email_adddress.split('@')[1] # replace index '1' with '0' to get the username
     '''
 
-  'prompt user':
-    'prefix': 'prompt user for number'
+  'prompt user for the number of most frequently occurring items they\'d like to see':
+    'prefix': 'prompt user'
     'body': '''
-    import pyinputplus as pyip
+    def prompt_user_for_number():
+        import pyinputplus as pyip
 
-    num = pyip.inputInt(prompt="Enter the number you'd like to see. \n> ")
+        print("Enter the number of most frequently occurring items you'd like "
+              "to see.")
+        return pyip.inputInt(prompt="> ")
     '''
 
   'check user input':
