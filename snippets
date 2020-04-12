@@ -61,10 +61,16 @@
   'find all permutations of a string':
     'prefix': 'permutations'
     'body': '''
+    def permutations(a):
+    """Make a list of all permutations of a string."""
     import itertools
 
-    for p in itertools.permutations('abcd'): # replace 'abcd'
-        print(p)
+    lst = []
+
+    for i in itertools.permutations(a):
+        lst.append(i)
+
+    return lst
     '''
 
   'augmented assignment - add':
