@@ -447,7 +447,7 @@
     '''
 
 
-  'open csv and edit headers':
+  'open csv edit headers':
     'prefix': 'csv open edit headers'
     'body': '''
     import csv
@@ -468,19 +468,37 @@
       df = pd.read_csv(\'data.csv\', index_col=0)
     '''
 
-  'write csv':
-    'prefix': 'csv write'
+  'write dictionary csv':
+    'prefix': 'csv write dictionary to csv'
     'body': '''
-    import csv\n
-    HEADERS = [] # name headers\n
-    def write_to_csv(name_of_file, dct):
-    \    """ write dictionary to csv """
-    \    with open(name_of_file, 'w') as out_file:
-    \        out_csv = csv.writer(out_file)
-    \        out_csv.writerow(HEADERS) # define HEADERS before running function
-    \        for k, v in DCT.items(): # rename keys and values to make to make them meaningful
-    \            keys_values = (k, v)
-    \            out_csv.writerow(keys_values)
+    def write_dct_to_csv(file, DCT, HEADERS):
+        """Write dictionary to csv."""
+        import csv
+
+        with open(file, 'w') as out_file:
+            out_csv = csv.writer(out_file)
+            out_csv.writerow(HEADERS)
+            for k, v in DCT.items():
+                keys_values = (k, v) # rename keys and values to make to make them meaningful
+                out_csv.writerow(keys_values)
+
+        print(f'"{file}" exported successfully')
+    '''
+
+  'write list csv':
+    'prefix': 'csv write list to csv'
+    'body': '''
+    def write_lst_to_csv(file, LST, HEADER):
+        """Write list to csv """
+        import csv
+
+        with open(file, 'w') as out_file:
+            out_csv = csv.writer(out_file)
+            out_csv.writerow(HEADER)
+            for i in LST: # rename i to make it meaningful
+                out_csv.writerow([i])
+
+            print(f'"{file}" exported successfully')
     '''
 
   'switch function':
