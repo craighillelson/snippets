@@ -756,3 +756,7 @@
     'ResourceType=instance,Tags=[{Key=xxx,Value=xxx}]'
     'ResourceType=volume,Tags=[{Key=xxx,Value=xxx}]'
     '''
+
+  'create vpc':
+    'prefix': 'create vpc'
+    'body': 'aws ec2 create-vpc --cidr-block 172.16.0.0/16' # specify whatever cidr block you like
