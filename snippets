@@ -124,10 +124,11 @@
     '''
 
   'enumerated for loop starting at 1':
-    'prefix': 'list - enumerated for loop'
+    'prefix': 'list - output enumerated for loop'
     'body': '''
-    for i, x in enumerate(lst, 1): # rename variable to make it meaningful
-        # process row
+    def output_enumerated_list(lst):
+        for i, j in enumerate(lst, 1): # rename variable to make it meaningful
+            print(i, j )# process row
     '''
 
   'zip lists':
@@ -141,10 +142,10 @@
     'prefix': 'list - create test list'
     'body': '''
     lst = [
-      \  'Gene',
-      \  'Paul',
-      \  'Peter',
-      \  'Ace',
+    \    'Gene',
+    \    'Paul',
+    \    'Peter',
+    \    'Ace',
     ]
     '''
 
@@ -330,8 +331,9 @@
   'get today':
     'prefix': 'today'
     'body': '''
-    from datetime import date\n
-    today = date.today()
+    from datetime import date
+
+    today = date.today() # yields today's date in YYYY-MM-DD
     '''
 
   'format today':
@@ -760,3 +762,11 @@
   'create vpc':
     'prefix': 'create vpc'
     'body': 'aws ec2 create-vpc --cidr-block 172.16.0.0/16' # specify whatever cidr block you like
+
+  'output table of amis':
+    'prefix': 'output table of amis'
+    'body': '''
+    aws --output table ec2 describe-images \
+    --filters "Name=description,Values=*Amazon Linux 2*" \
+    "Name=owner-alias,Values=amazon"
+    '''
