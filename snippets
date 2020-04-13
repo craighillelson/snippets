@@ -330,6 +330,19 @@
     'prefix': 'print'
     'body': 'print(RTN())'
 
+  'string to date':
+    'prefix': 'convert string to date'
+    'body': '''
+    def string_to_date(a):
+        """Convert string to date object."""
+        from datetime import datetime
+
+        date_time = a
+        date_strptime = datetime.strptime(date_time, '%Y-%m-%d %H:%M')
+        return date_strptime.date()
+    '''
+
+
   'today YYYY-MM-DD':
     'prefix': 'today YYYY-MM-DD'
     'body': '''
@@ -354,8 +367,8 @@
     'body': '''
     from datetime import datetime
 
-    date = '9/27/19 17:01'
-    date_strptime = datetime.strptime(date, '%m/%d/%y %H:%M')
+    datetime_str = '9/27/19 17:01'
+    date_strptime = datetime.strptime(datetime_str, '%m/%d/%y %H:%M')
     date_formatted = date_strptime.strftime('%Y-%m-%d')
 
     print(date_formatted)
