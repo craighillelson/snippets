@@ -313,11 +313,13 @@
         return dct
     '''
 
-  'remove @ and everything after':
-    'prefix': 'remove_@'
+  'strip @ and domain':
+    'prefix': 'email prefix'
     'body': '''
-    for item in lst:
-        print(item[:item.find('@')])
+    def get_email_prefix(lst):
+        """Iterate through a list email addresses and output email prefixes."""
+        for item in lst:
+            print(item[:item.find('@')])
     '''
 
   'return lambda':
@@ -328,16 +330,16 @@
     'prefix': 'print'
     'body': 'print(RTN())'
 
-  'get today':
-    'prefix': 'today'
+  'today YYYY-MM-DD':
+    'prefix': 'today YYYY-MM-DD'
     'body': '''
     from datetime import date
 
-    today = date.today() # yields today's date in YYYY-MM-DD
+    today = date.today() # yields today's date in YYYY-MM-DD format
     '''
 
-  'format today':
-    'prefix': 'today format'
+  'today - Day, Month d, YYYY':
+    'prefix': 'today Month d, YYYY'
     'body': '''
     from datetime import date
     from datetime import datetime
