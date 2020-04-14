@@ -781,7 +781,7 @@
 
   'create vpc':
     'prefix': 'create vpc'
-    'body': 'aws ec2 create-vpc --cidr-block 172.16.0.0/16' # specify whatever cidr block you like
+    'body': 'aws ec2 create-vpc --cidr-block {172.16.0.0/16}'
 
   'output table of amis':
     'prefix': 'output table of amis'
@@ -790,3 +790,7 @@
     --filters "Name=description,Values=*Amazon Linux 2*" \
     "Name=owner-alias,Values=amazon"
     '''
+
+  'copy a file to s3':
+    'prefix': 's3 copy file'
+    'body': 'aws s3 cp {filename} {bucket}'
