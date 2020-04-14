@@ -103,7 +103,12 @@
 
   'remove':
     'prefix': 'list - remove'
-    'body': 'lst.remove(a) # rename "lst" and "a"'
+    'body': '''
+    def remove_from_list(lst, a):
+        """Remove an item from a list."""
+        lst.remove(a) # rename "lst" and "a"
+        return lst
+    '''
 
   'insert':
     'prefix': 'list - insert'
