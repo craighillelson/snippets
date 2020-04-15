@@ -794,3 +794,7 @@
   'copy a file to s3':
     'prefix': 's3 copy file'
     'body': 'aws s3 cp {filename} {bucket}'
+
+  'create a presigned url':
+    'prefix': 's3 presigned'
+    'body': 'aws s3 presign s3://{my_bucket_name/private_object} --expires-in 600'
