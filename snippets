@@ -32,10 +32,10 @@
   'find string regardless of case':
     'prefix': 'str - find match regardless of case'
     'body':'''
-    import re
-
-    text = 'ace, ACE, Ace'
-    text_match = re.findall('ace', text, flags=re.IGNORECASE)
+    def find_match_ignore_case(a, b):
+        """Find text matches in a string, regardless of case."""
+        import re
+        return re.findall(b, a, flags=re.IGNORECASE)
     '''
 
   'import namedtuple':
