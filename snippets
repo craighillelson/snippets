@@ -133,14 +133,20 @@
     'body': '''
     def output_enumerated_list(lst):
         for i, j in enumerate(lst, 1): # rename variable to make it meaningful
-            print(i, j )# process row
+            print(i, j) # process row
     '''
 
   'zip lists':
     'prefix': 'lists - zip'
     'body': '''
-    for item1, item2 in zip(LST1, LST2):
-        # process row
+    def zip_lists(a, b):
+        """Zip lists and return a combined list."""
+        lst = []
+        for item1, item2 in zip(a, b):
+            item = item1, item2
+            lst.append(item)
+
+        return lst
     '''
 
   'create test list':
