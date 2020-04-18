@@ -324,15 +324,6 @@
         return dct
     '''
 
-  'strip @ and domain':
-    'prefix': 'email prefix'
-    'body': '''
-    def get_email_prefix(lst):
-        """Iterate through a list email addresses and output email prefixes."""
-        for item in lst:
-            print(item[:item.find('@')])
-    '''
-
   'return lambda':
     'prefix': 'lambda return'
     'body': 'RTN = lambda: \'\\\\n\''
@@ -373,25 +364,15 @@
     print(today_formatted)
     '''
 
-  'format datetime object':
+  'format string as datetime object in YYYY-MM-DD format':
     'prefix': 'datetime format'
     'body': '''
-    from datetime import datetime
+    def datetime_format(a, b):
+        """Format string as datetime object."""
+        from datetime import datetime
 
-    datetime_str = '9/27/19 17:01'
-    date_strptime = datetime.strptime(datetime_str, '%m/%d/%y %H:%M')
-    date_formatted = date_strptime.strftime('%Y-%m-%d')
-
-    print(date_formatted)
-    '''
-
-  'format date as YYYY-MM-DD':
-    'prefix': 'date format'
-    'body': '''
-    from datetime import datetime
-
-    date = datetime.strptime('2019-09-27', '%Y-%m-%d') # '2019-09-27 is a placeholder'
-    print(date.date())
+        date_strptime = datetime.strptime(a, b) # date string, format
+        return date_strptime.date()
     '''
 
   'get difference between two dates in minutes':
@@ -586,8 +567,17 @@
   'get domain name from an email address':
     'prefix': 'domain'
     'body': '''
-    email_adddress = 'dwight@dundermifflin.com'
-    domain = email_adddress.split('@')[1] # replace index '1' with '0' to get the username
+    def get_domain(email_adddress):
+        """Extract domain from email address."""
+        return email_adddress.split('@')[1]
+    '''
+
+  'get username from an email address':
+    'prefix': 'username'
+    'body': '''
+    def get_email_prefix(email_adddress):
+        """ """
+        return email_adddress.split('@')[0]
     '''
 
   'prompt user for the number of most frequently occurring items they\'d like to see':
