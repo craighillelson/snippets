@@ -397,15 +397,16 @@
   'get difference between two dates in minutes':
     'prefix': 'dates diff minutes'
     'body': '''
-    from datetime import datetime
+    def diff_dates_minutes(a, b):
+        """Get the differece in minutes between two datetime objects."""
+        from datetime import datetime
 
-    FMT = '%Y-%m-%d %H:%M:%S'
-    D1 = datetime.strptime('2019-01-01 10:39:30', FMT)
-    D2 = datetime.strptime('2019-01-02 10:39:00', FMT)
+        FMT = '%Y-%m-%d %H:%M:%S'
+        D1 = datetime.strptime(a, FMT)
+        D2 = datetime.strptime(b, FMT)
+        DIFF = D2 - D1
 
-    DIFF = D2 - D1
-    DIFF_MINUTES = (DIFF.days * 24 * 60) + (DIFF.seconds/60)
-    print("{:.2f}".format(DIFF_MINUTES))
+        return '{:.2f}'.format((DIFF.days * 24 * 60) + (DIFF.seconds/60))
     '''
 
   'get the difference between two dates in days':
