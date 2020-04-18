@@ -223,10 +223,10 @@
     'prefix': 'dct - create test dictionary'
     'body': '''
     DCT = {
-      \  'Gene': 'bass',
-      \  'Paul': 'guitar',
-      \  'Peter': 'drums',
-      \  'Ace': 'lead guitar',
+    \    'Gene': 'bass',
+    \    'Paul': 'guitar',
+    \    'Peter': 'drums',
+    \    'Ace': 'lead guitar',
     }
     '''
 
@@ -344,7 +344,6 @@
         return date_strptime.date()
     '''
 
-
   'today YYYY-MM-DD':
     'prefix': 'today YYYY-MM-DD'
     'body': '''
@@ -356,12 +355,12 @@
   'today - Day, Month d, YYYY':
     'prefix': 'today Month d, YYYY'
     'body': '''
-    from datetime import date
-    from datetime import datetime
+    def date_format_day_m_d_y(a):
+        """Format date as '%A, %B %d, %Y'."""
+        from datetime import date
+        from datetime import datetime
 
-    today = date.today()
-    today_formatted = datetime.strftime(today, '%A %B %d, %Y')
-    print(today_formatted)
+        return datetime.strftime(a, '%A, %B %d, %Y')
     '''
 
   'format string as datetime object in YYYY-MM-DD format':
@@ -393,17 +392,18 @@
   'get the difference between two dates in days':
     'prefix': 'dates diff days'
     'body': '''
-    import datetime
-    from datetime import date
+    def diff_days_from_today(a):
+        """Get the difference in days between a user specified date and today's
+         date."""
+        import datetime
+        from datetime import date
 
-    # calculate how between a given date and today
-    TODAY = date.today()
-    A_DATE = date(2019, 1, 1) # replace with whatever date you're working with
-    DELTA = TODAY - A_DATE
-    DAYS_BETWEEN = DELTA.days
-
-    print(A_DATE)
-    print(DAYS_BETWEEN)
+        TODAY = date.today()
+        DELTA = TODAY - a
+        if DELTA.days > 0:
+            return str(DELTA.days) + ' ago'
+        else:
+            return str(DELTA.days * -1) + ' from now'
     '''
 
   'get the difference between two dates in weeks':
