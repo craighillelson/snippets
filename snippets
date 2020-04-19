@@ -472,6 +472,24 @@
     \        # process row
     '''
 
+  'json read':
+    'prefix': 'read json data'
+    'body': '''
+    def read_json(a):
+        """Read JSON data."""
+        with open(a) as f:
+            return json.load(f)
+    '''
+
+  'json write':
+    'prefix': 'write json data'
+    'body': '''
+    def write_json(a, b):
+        """Write JSON data."""
+        with open(a, 'w') as f:
+        json.dump(b, f)
+    '''
+
   'open csv with pandas':
     'prefix': 'csv open with pandas'
     'body': '''
