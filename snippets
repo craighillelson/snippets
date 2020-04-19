@@ -437,7 +437,7 @@
             Row = namedtuple('Row', headings)
             for r in f_csv:
                 row = Row(*r)
-                dct[row.email] = row.start_date
+                dct[row.key] = row.value # replace 'key' and 'value' with header names
 
         return dct
     '''
