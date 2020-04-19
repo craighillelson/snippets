@@ -425,18 +425,21 @@
   'open csv':
     'prefix': 'csv open namedtuple'
     'body': '''
-    import csv
-    from collections import namedtuple\n
-    DCT = {}\n
-    def open_csv(file, DCT):
-    \    """ open csv and populate a dictionary with its contents """
-    \    with open(file) as csv_file:
-    \        F_CSV = csv.reader(csv_file)
-    \        COLUMN_HEADINGS = next(F_CSV)
-    \        CSV_ROW = namedtuple(\'Row\', COLUMN_HEADINGS)
-    \        for rows in F_CSV:
-    \            row = CSV_ROW(*rows)
-    \            DCT[row.key] = row.value
+    def open_csv_pop_dct_namedtuple(file_name):
+        """Open a csv and populate a dictionary."""
+        from collections import namedtuple
+
+        dct = {}
+
+        with open(file_name) as f:
+            f_csv = csv.reader(f)
+            headings = next(f_csv)
+            Row = namedtuple('Row', headings)
+            for r in f_csv:
+                row = Row(*r)
+                dct[row.email] = row.start_date
+
+        return dct
     '''
 
   'open csv DictReader':
@@ -455,7 +458,6 @@
 
         return DCT
     '''
-
 
   'open csv edit headers':
     'prefix': 'csv open edit headers'
