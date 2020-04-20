@@ -646,6 +646,15 @@
     print(num_fmt)
     '''
 
+  'format as a percentage':
+    'prefix': 'format percentage'
+    'body': '''
+    def format_percentage(num, total):
+        """Format percentage to the second decimal place."""
+        perc = num / total
+        return '{:.2%}'.format(perc)
+    '''
+
   'count occurrences of a word in a list':
     'prefix': 'word counter'
     'body': '''
