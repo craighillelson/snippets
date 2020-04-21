@@ -344,6 +344,17 @@
         return date_strptime.date()
     '''
 
+  'yesterday YYYY-MM-DD':
+    'prefix': 'get yesterday\'s date'
+    'body': '''
+    def get_yesterday():
+        """Get yesterday's date."""
+        from datetime import datetime
+        from datetime import timedelta
+
+        return str(datetime.strftime(datetime.now() - timedelta(1), '%Y-%m-%d'))
+    '''
+
   'today YYYY-MM-DD':
     'prefix': 'today YYYY-MM-DD'
     'body': '''
