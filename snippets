@@ -32,10 +32,10 @@
   'find string regardless of case':
     'prefix': 'str - find match regardless of case'
     'body':'''
-    def find_match_ignore_case(a, b):
+    def find_match_ignore_case(TEXT, TEXT_TO_FIND):
         """Find text matches in a string, regardless of case."""
         import re
-        return re.findall(b, a, flags=re.IGNORECASE)
+        return re.findall(TEXT, TEXT_TO_FIND, flags=re.IGNORECASE)
     '''
 
   'import namedtuple':
@@ -54,12 +54,33 @@
     'prefix': 'date'
     'body': 'from datetime import date'
 
+  'find last friday\'s date':
+    'prefix': 'last friday'
+    'body': '''
+    from datetime import datetime
+    from datetime import timedelta
+
+    weekdays = ['Monday', 'Tuesday', 'Wendesday', 'Thursday', 'Friday',
+                'Saturday', 'Sunday']
+
+    def get_previous_by_day(dayname, start_date=None):
+        if start_date is None:
+            start_date = datetime.today()
+        day_num = start_date.weekday()
+        day_num_target = weekdays.index(dayname)
+        days_ago = (7 + day_num - day_num_target) % 7
+        if days_ago == 0:
+            days_ago = 7
+        target_date = start_date - timedelta(days=days_ago)
+        return target_date
+    '''
+
   'from itertools import cycle':
     'prefix': 'cycle'
     'body': 'from itertools import cycle'
 
   'find all permutations of a string':
-    'prefix': 'permutations'
+    'prefix': 'str - permutations'
     'body': '''
     def permutations(a):
         """Make a list of all permutations of a string."""
@@ -93,11 +114,11 @@
     'prefix': 'modulus'
     'body': '%='
 
-  'create':
+  'create list':
     'prefix': 'list - create'
     'body': 'lst = []'
 
-  'append':
+  'append list':
     'prefix': 'list - append'
     'body': 'lst.append(a) # rename "lst" and "a"'
 
@@ -114,7 +135,7 @@
     'prefix': 'list - insert'
     'body': 'lst.insert(1, item) # replace "1" with desired list index and "item" with appropriate variable'
 
-  'iterate':
+  'iterate through list':
     'prefix': 'list - iterate'
     'body': '''
     for x in lst: # rename variable to make it meaningful
@@ -164,22 +185,22 @@
     'prefix': 'list - get index'
     'body': 'lst.index(element) # rename lst'
 
-  'if in':
-    'prefix': 'list - if variable in list'
+  'if variable in list':
+    'prefix': 'list - if in'
     'body': '''
     if x in: # rename variable to make it meaningful
         # process row
     '''
 
-  'if not in':
-    'prefix': 'list - if variable not in list'
+  'if variable not in list':
+    'prefix': 'list - if not in'
     'body': '''
     if x not in lst:
         # process row
     '''
 
-  'list - group by field':
-    'prefix': 'list - list of dictionaries - groupby'
+  'list - list of dictionaries - groupby':
+    'prefix': 'list - groupby'
     'body': '''
     from itertools import groupby
 
@@ -197,7 +218,7 @@
             print('    ', i)
     '''
 
-  'list - iterate through a list and apply a conditional statement to each item':
+  'iterate through a list and apply a conditional statement to each item':
     'prefix': 'list - iterate and test'
     'body': '''
     for word in word_list:
@@ -235,7 +256,7 @@
     'body': 'del DCT[key] # update DCT and key'
 
   'loop through dictionary enumerating items starting at 1':
-    'prefix': 'dct - enumerated for loop'
+    'prefix': 'dct - enumerated'
     'body': '''
     for i, (k, v) in enumerate(DCT.items(), 1):
         print(f'{i} {k} {v}')
@@ -753,7 +774,11 @@
 
   'range of a list':
     'prefix': 'range'
-    'body': 'min(lst), max(lst) # replace lst'
+    'body': '''
+    def find_range(lst):
+        """Find the range in a list of numbers."""
+        return min(lst), max(lst) # replace lst'
+    '''
 
   'find mean':
     'prefix': 'mean'
