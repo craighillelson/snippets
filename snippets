@@ -638,15 +638,28 @@
         print(f'does not contain {domain}')
     '''
 
-  'validate email addresses':
-    'prefix': 'validate_email_addresses'
+  'find phone number in a string':
+    'prefix': 'regex - find phone number'
     'body': '''
-    for email in lst: # rename lst to something meaningful
-    \    match = re.search(r'[\w.-]+@[\w.-]+', email)
-    \    if match:
-    \        print('valid')
-    \    else:
-    \        print('invalid')
+    def find_phone_number():
+        """Find phone number in a string."""
+        import re
+
+        phone_num_regex = re.compile(r'\\\\d{3}-\\\\d{3}-\\\\d{4}')
+        mo = phone_num_regex.search('My number is 212-555-1212.')
+        print('Phone number found: ' + mo.group())
+    '''
+
+  'find date in a string':
+    'prefix': 'regex - find date in YYYY-MM-DD format'
+    'body': '''
+    def find_date():
+        """Find date in a string."""
+        import re
+
+        date_num_regex = re.compile(r'\\\\d{4}-\\\\d{2}-\\\\\d{2}')
+        mo = date_num_regex.search('I was born on 1989-01-22.')
+        print('Date found: ' + mo.group())
     '''
 
   'get domain name from an email address':
@@ -665,7 +678,8 @@
         return email_adddress.split('@')[0]
     '''
 
-  'prompt user for the number of most frequently occurring items they\'d like to see':
+  'prompt user for the number of most frequently occurring items they\'d like \
+  to see':
     'prefix': 'prompt user'
     'body': '''
     def prompt_user_for_number():
