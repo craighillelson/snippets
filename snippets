@@ -822,6 +822,15 @@
     statistics.stdev([])
     '''
 
+  'validate that user entered an email address':
+    'prefix': 'user input - email address'
+    'body': '''
+    import pyinputplus as pyip
+
+    print('input an eamil address')
+    email = pyip.inputEmail('> ')
+    '''
+
   'create ec2':
     'prefix': 'create ec2'
     'body': '''
@@ -848,7 +857,7 @@
 
         print("New instance created:", instance[0].id)
 
-      '''
+    '''
 
 '.source.html':
   'html for w3 js exercises':
