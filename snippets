@@ -831,6 +831,31 @@
     email = pyip.inputEmail('> ')
     '''
 
+  'validate that user entered yes or no':
+    'prefix': 'user input - yes or no'
+    'body': '''
+    import pyinputplus as pyip
+
+    print('yes or no')
+    usr_choice = pyip.inputYesNo()
+    '''
+
+  'present user with numbered choices':
+    'prefix': 'user input - numbered choices'
+    'body': '''
+    import pyinputplus as pyip
+
+    lst = [
+        'Gene',
+        'Paul',
+        'Peter',
+        'Ace',
+    ]
+
+    usr_choice = pyip.inputMenu(lst, numbered=True)
+    print(usr_choice)
+    '''
+
   'create ec2':
     'prefix': 'create ec2'
     'body': '''
