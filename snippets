@@ -118,6 +118,23 @@
     'prefix': 'list - create'
     'body': 'lst = []'
 
+  'sort list':
+    'prefix': 'list - sort'
+    'body': 'lst.sort()'
+
+  'sort list reverse':
+    'prefix': 'list - sort reverse'
+    'body': 'lst.sort(reverse=True)'
+
+  'shuffle list':
+    'prefix': 'list - shuffle'
+    'body': '''
+    import random
+
+    lst = # populate list
+    lst.random(lst)
+    '''
+
   'append list':
     'prefix': 'list - append'
     'body': 'lst.append(a) # rename "lst" and "a"'
@@ -138,7 +155,7 @@
   'iterate through list':
     'prefix': 'list - iterate'
     'body': '''
-    for x in lst: # rename variable to make it meaningful
+    for i in lst: # rename variable to make it meaningful
         # process row
     '''
 
@@ -344,10 +361,6 @@
 
         return dct
     '''
-
-  'return lambda':
-    'prefix': 'lambda return'
-    'body': 'RTN = lambda: \'\\\\n\''
 
   'print return':
     'prefix': 'print'
