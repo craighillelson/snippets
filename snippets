@@ -500,6 +500,20 @@
             pass
     '''
 
+  'timestamp to string':
+    'prefix': 'str - format timestamp as a string'
+    'body': '''
+    def timestamp_to_str():
+        """Format a timestamp as a string."""
+        import time
+        from datetime import datetime
+
+        timestamp = time.time()
+        a = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d_%H-%M-%S')
+
+        return a
+    '''
+
   'open csv':
     'prefix': 'csv open namedtuple'
     'body': '''
