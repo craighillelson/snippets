@@ -732,19 +732,13 @@
         return pyip.inputInt(prompt="> ")
     '''
 
-  'check user input':
-    'prefix': 'check_user_input'
+  'validate that the user entered an integer':
+    'prefix': 'user input - validate integer'
     'body': '''
-    while True:
-        try:
-            NUMBER_OF_GUESTS = int(input('How many ice cream sandwiches would '
-                                         'you like? ')) # replace "ice cream sandwiches"
-            if NUMBER_OF_GUESTS > 12: # replace '12'
-                print('please enter a number less than or equal to twelve ')
-            else:
-                break
-        except ValueError:
-            print("Please enter an integer.")
+    import pyinputplus as pyip
+
+    print('How many ice cream sandwiches would you like?')
+    response = pyip.inputInt('> ')
     '''
 
   'format a number as a float':
