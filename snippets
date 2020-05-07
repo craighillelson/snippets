@@ -794,6 +794,16 @@
         print(i)
     '''
 
+  'make directory':
+    'prefix': 'os - make directory'
+    'body': '''
+    def make_directory(a):
+        """Creates a directory"""
+        import os
+
+        os.makedirs(a)
+    '''
+
   'string starts with':
     'prefix': 'startswith'
     'body': 'text.startswith(\'foo\') # replace \'text\' and \'foo\''
