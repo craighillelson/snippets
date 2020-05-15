@@ -50,6 +50,16 @@
     'prefix': 're'
     'body': 'import re'
 
+  'import US holidays':
+    'prefix': 'holidays'
+    'body': '''
+    from datetime import date
+
+    import holidays
+
+    us_holidays = holidays.US()
+    '''
+
   'from datetime import date':
     'prefix': 'date'
     'body': 'from datetime import date'
