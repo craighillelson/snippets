@@ -60,6 +60,20 @@
     us_holidays = holidays.US()
     '''
 
+  'is today a weekday':
+    'prefix': 'weekday'
+    'body': '''
+    def not_weekend():
+        """Determine if today is a weekday."""
+        import datetime
+
+        day_index = datetime.datetime.today().weekday()
+        if day_index > 4:
+            print('weekend')
+        else:
+            print('not a weekend')
+    '''
+
   'from datetime import date':
     'prefix': 'date'
     'body': 'from datetime import date'
