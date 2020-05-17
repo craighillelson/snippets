@@ -53,11 +53,17 @@
   'import US holidays':
     'prefix': 'holidays'
     'body': '''
+    import holidays
     from datetime import date
 
-    import holidays
+    today = date.today()
 
     us_holidays = holidays.US()
+
+    if today in us_holidays:
+        print('holiday')
+    else:
+        print('not a holiday')
     '''
 
   'is today a weekday':
