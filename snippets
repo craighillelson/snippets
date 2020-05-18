@@ -50,7 +50,7 @@
     'prefix': 're'
     'body': 'import re'
 
-  'import US holidays':
+  'import US holidays, requires https://pypi.org/project/holidays/':
     'prefix': 'holidays'
     'body': '''
     import holidays
@@ -90,8 +90,15 @@
     from datetime import datetime
     from datetime import timedelta
 
-    weekdays = ['Monday', 'Tuesday', 'Wendesday', 'Thursday', 'Friday',
-                'Saturday', 'Sunday']
+    weekdays = [
+        'Monday',
+        'Tuesday',
+        'Wendesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+    ]
 
     def get_previous_by_day(dayname, start_date=None):
         if start_date is None:
@@ -105,6 +112,21 @@
         return target_date
     '''
 
+  'days from now':
+    'prefix': 'determine the date a given number of days from  today\'s date'
+    'body': '''
+    def days_from_now(a):
+        """
+        Take today's date and calculate a number of days from same.
+        The number of days is specified in the function's argument.
+        """
+
+        import datetime
+
+        start_date = datetime.datetime.now() + datetime.timedelta(a)
+        return start_date.date()
+    '''
+
   'from itertools import cycle':
     'prefix': 'cycle'
     'body': 'from itertools import cycle'
@@ -114,6 +136,7 @@
     'body': '''
     def permutations(a):
         """Make a list of all permutations of a string."""
+
         import itertools
 
         lst = []
@@ -221,10 +244,10 @@
     'prefix': 'list - create test list'
     'body': '''
     lst = [
-    \    'Gene',
-    \    'Paul',
-    \    'Peter',
-    \    'Ace',
+        'Gene',
+        'Paul',
+        'Peter',
+        'Ace',
     ]
     '''
 
@@ -291,10 +314,10 @@
     'prefix': 'dct - create test dictionary'
     'body': '''
     DCT = {
-    \    'Gene': 'bass',
-    \    'Paul': 'guitar',
-    \    'Peter': 'drums',
-    \    'Ace': 'lead guitar',
+        'Gene': 'bass',
+        'Paul': 'guitar',
+        'Peter': 'drums',
+        'Ace': 'lead guitar',
     }
     '''
 
@@ -427,8 +450,8 @@
     today = date.today() # yields today's date in YYYY-MM-DD format
     '''
 
-  'today - Day, Month d, YYYY':
-    'prefix': 'today Month d, YYYY'
+  'today - Day, Month date, YYYY':
+    'prefix': 'today Month date, YYYY'
     'body': '''
     def date_format_day_m_d_y(a):
         """Format date as '%A, %B %d, %Y'."""
@@ -454,6 +477,7 @@
     'body': '''
     def diff_dates_minutes(a, b):
         """Get the differece in minutes between two datetime objects."""
+
         from datetime import datetime
 
         FMT = '%Y-%m-%d %H:%M:%S'
@@ -549,6 +573,7 @@
     'body': '''
     def open_csv_pop_dct_namedtuple(file_name):
         """Open a csv and populate a dictionary."""
+
         from collections import namedtuple
 
         dct = {}
@@ -586,12 +611,12 @@
     'body': '''
     import csv
     with open(file) as f: # replace "file" with file name
-    \    F_CSV = csv.reader(f)
-    \    HEADERS = [re.sub('[^a-zA-Z_]', '_', h) for h in next(F_CSV)]
-    \    ROW = namedtuple('Row', HEADERS)
-    \    for r in F_CSV:
-    \        row = ROW(*r)
-    \        # process row
+        F_CSV = csv.reader(f)
+        HEADERS = [re.sub('[^a-zA-Z_]', '_', h) for h in next(F_CSV)]
+        ROW = namedtuple('Row', HEADERS)
+        for r in F_CSV:
+            row = ROW(*r)
+            # process row
     '''
 
   'json read':
@@ -599,6 +624,7 @@
     'body': '''
     def read_json(a):
         """Read JSON data."""
+
         with open(a) as f:
             return json.load(f)
     '''
@@ -608,6 +634,7 @@
     'body': '''
     def write_json(a, b):
         """Write JSON data."""
+
         with open(a, 'w') as f:
         json.dump(b, f)
     '''
@@ -679,6 +706,7 @@
     'body': '''
     def generate_list_of_random_numbers():
         """Generate a list of random numbers within specifiied paramaters."""
+
         import random
 
         return random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
