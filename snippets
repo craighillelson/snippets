@@ -240,6 +240,14 @@
         return lst
     '''
 
+  'zip lists longest':
+    'prefix': 'list - zip longest'
+    'body': '''
+    from itertools import zip_longest
+    for i in zip_longest(a, b):
+        print(i)
+    '''
+
   'create test list':
     'prefix': 'list - create test list'
     'body': '''
@@ -1008,36 +1016,53 @@
     'prefix': 'create_aws_instance'
     'body' : '''
     # replace 'xxx' with relevant values
-    \\
-    aws ec2 run-instances \\
-    --image-id ami-xxx \\
-    --count 1 \\
-    --instance-type t2.micro \\
-    --key-name xxx \\
-    --security-group-ids sg-xxx \\
-    --subnet-id subnet-xxx \\
-    --user-data xxx.sh \\
-    --tag-specifications \\
+
+    aws ec2 run-instances \\\\
+    --image-id ami-xxx \\\\
+    --count 1 \\\\
+    --instance-type t2.micro \\\\
+    --key-name xxx \\\\
+    --security-group-ids sg-xxx \\\\
+    --subnet-id subnet-xxx \\\\
+    --user-data xxx.sh \\\\
+    --tag-specifications \\\\
     'ResourceType=instance,Tags=[{Key=xxx,Value=xxx}]'
     'ResourceType=volume,Tags=[{Key=xxx,Value=xxx}]'
     '''
 
   'create vpc':
-    'prefix': 'create vpc'
+    'prefix': 'aws create vpc'
     'body': 'aws ec2 create-vpc --cidr-block {172.16.0.0/16}'
 
   'output table of amis':
-    'prefix': 'output table of amis'
+    'prefix': 'aws output table of amis'
     'body': '''
-    aws --output table ec2 describe-images \
-    --filters "Name=description,Values=*Amazon Linux 2*" \
+    aws --output table ec2 describe-images \\\\
+    --filters "Name=description,Values=*Amazon Linux 2*" \\\\
     "Name=owner-alias,Values=amazon"
     '''
 
   'copy a file to s3':
-    'prefix': 's3 copy file'
+    'prefix': 'aws s3 copy file'
     'body': 'aws s3 cp {filename} {bucket}'
 
   'create a presigned url':
-    'prefix': 's3 presigned'
-    'body': 'aws s3 presign s3://{my_bucket_name/private_object} --expires-in 600'
+    'prefix': 'aws s3 presigned'
+    'body': '''
+    aws s3 presign s3://{my_bucket_name/private_object} \\\\
+    --expires-in 600
+    '''
+
+  'create a dynamodb':
+    'prefix': 'aws create a dynamodb'
+    'body': '''
+    aws dynamodb create-table \\\\
+    --table-name \\\\
+    {table name} --attribute-definitions \\\\
+    AttributeName={attribute},AttributeType=S \\\\
+    AttributeName={attribute},AttributeType=S \\\\
+    --key-schema AttributeName={attribute},KeyType=HASH \\\\
+    AttributeName={attribute},KeyType=RANGE \\\\
+    --provisioned-throughput \\\\
+    ReadCapacityUnits=1,WriteCapacityUnits=1
+    '''
