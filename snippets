@@ -19,7 +19,7 @@
 '.source.python':
   'doc string':
     'prefix': 'doc'
-    'body': '""" __doc__ """'
+    'body': '"""__doc__"""'
 
   'concatenate strings':
     'prefix': 'str - concatenate'
@@ -219,12 +219,19 @@
         # process row
     '''
 
-  'enumerated for loop starting at 1':
+  'enumerate for loop starting at 1':
     'prefix': 'list - output enumerated for loop'
     'body': '''
     def output_enumerated_list(lst):
         for i, j in enumerate(lst, 1): # rename variable to make it meaningful
             print(i, j) # process row
+    '''
+
+  'print header and elements of a list on the same line':
+    'prefix': 'list - print elements on the same line'
+    'body': '''
+    print('kiss - original members:', end=' ')
+    print(*lst, sep=', '')
     '''
 
   'zip lists':
@@ -1053,12 +1060,12 @@
     --expires-in 600
     '''
 
-  'create a dynamodb':
-    'prefix': 'aws create a dynamodb'
+  'create a dynamodb table':
+    'prefix': 'aws create a dynamodb table'
     'body': '''
     aws dynamodb create-table \\\\
-    --table-name \\\\
-    {table name} --attribute-definitions \\\\
+    --table-name {table name} \\\\
+    --attribute-definitions \\\\
     AttributeName={attribute},AttributeType=S \\\\
     AttributeName={attribute},AttributeType=S \\\\
     --key-schema AttributeName={attribute},KeyType=HASH \\\\
