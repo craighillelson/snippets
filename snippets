@@ -750,6 +750,18 @@
         print('Phone number found: ' + mo.group())
     '''
 
+  'validate phone number format':
+    'prefix': 'regex - validate phone number format'
+    'body': '''
+    def phone_number_regex(phone_number):
+        """Test to ensure phone_number is entered in xxx-xxx-xxxx format."""
+        regex = '\d{3}-\d{3}-\d{4}'
+        if re.search(regex, phone_number):
+            return True
+        else:
+            return False
+    '''
+
   'find date in a string':
     'prefix': 'regex - find date in YYYY-MM-DD format'
     'body': '''
