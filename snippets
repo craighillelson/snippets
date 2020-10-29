@@ -610,18 +610,19 @@
   'open csv DictReader':
     'prefix': 'csv open with DictReader'
     'body': '''
-    def open_csv_pop_dct(file, a, b):
+    import csv
+
+    def open_csv_pop_dct(file_name, key, value):
         """Open csv and populate a dictionary with its contents."""
-        import csv
 
-        DCT = {}
+        dct = {}
 
-        with open(file, newline='') as csvfile:
+        with open(file_name, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                DCT[row[a]] = row[b]
+                dct[row[key]] = row[value]
 
-        return DCT
+        return dct
     '''
 
   'open csv edit headers':
