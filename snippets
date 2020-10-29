@@ -189,11 +189,11 @@
     lst.random(lst)
     '''
 
-  'append list':
+  'append to list':
     'prefix': 'list - append'
     'body': 'lst.append(a) # rename "lst" and "a"'
 
-  'remove':
+  'remove from list':
     'prefix': 'list - remove'
     'body': '''
     def remove_from_list(lst, a):
@@ -663,7 +663,7 @@
     df = pd.read_csv(\'data.csv\', index_col=0) # 'data.csv' is a placeholder
     '''
 
-  'write dictionary csv':
+  'write dictionary to csv':
     'prefix': 'csv write dictionary to csv'
     'body': '''
     def write_dct_to_csv(file, DCT, HEADERS):
@@ -680,7 +680,7 @@
         print(f'"{file}" exported successfully')
     '''
 
-  'write list csv':
+  'write list to csv':
     'prefix': 'csv write list to csv'
     'body': '''
     def write_lst_to_csv(file, LST, HEADER):
