@@ -69,13 +69,14 @@
   'is today a weekday':
     'prefix': 'weekday'
     'body': '''
+    import datetime
+    
     def not_weekend():
         """
         Determine if today is a weekday. Return 'weekend' if the date falls
         on a weekend. Return 'not a weekend' if the date does not fall on a
         weekend.
         """
-        import datetime
 
         day_index = datetime.datetime.today().weekday()
         if day_index > 4:
