@@ -136,14 +136,14 @@
   'find all permutations of a string':
     'prefix': 'str - permutations'
     'body': '''
-    def permutations(a):
-        """Return a list of all permutations of a string."""
+    import itertools
 
-        import itertools
+    def permutations(a_string):
+        """Return a list of all permutations of a string."""
 
         lst = []
 
-        for i in itertools.permutations(a):
+        for i in itertools.permutations(a_string):
             lst.append(i)
 
         return lst
