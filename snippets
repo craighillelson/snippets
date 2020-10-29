@@ -628,8 +628,11 @@
   'open csv edit headers':
     'prefix': 'csv open edit headers'
     'body': '''
+    from collections import namedtuple
     import csv
-    with open(file) as f: # replace "file" with file name
+    import re
+
+    with open("file_name.csv") as f: # replace "file_name.csv" with  actual file name
         F_CSV = csv.reader(f)
         HEADERS = [re.sub('[^a-zA-Z_]', '_', h) for h in next(F_CSV)]
         ROW = namedtuple('Row', HEADERS)
