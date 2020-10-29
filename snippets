@@ -635,9 +635,9 @@
     with open("file_name.csv") as f: # replace "file_name.csv" with  actual file name
         F_CSV = csv.reader(f)
         HEADERS = [re.sub('[^a-zA-Z_]', '_', h) for h in next(F_CSV)]
-        ROW = namedtuple('Row', HEADERS)
+        assembled_tuple = namedtuple('assembled_tuple', HEADERS)
         for r in F_CSV:
-            row = ROW(*r)
+            row = assembled_tuple(*r)
             # process row
     '''
 
