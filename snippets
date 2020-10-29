@@ -588,19 +588,20 @@
   'open csv':
     'prefix': 'csv open namedtuple'
     'body': '''
+    import csv
+    from collections import namedtuple
+
     def open_csv_pop_dct_namedtuple(file_name):
         """Open a csv and populate a dictionary."""
 
-        from collections import namedtuple
-
         dct = {}
 
-        with open(file_name) as f:
-            f_csv = csv.reader(f)
+        with open(file_name) as csv_file:
+            f_csv = csv.reader(csv_file)
             headings = next(f_csv)
-            Row = namedtuple('Row', headings)
-            for r in f_csv:
-                row = Row(*r)
+            assembled_tuple = namedtuple('assembled_tuple', headings)
+            for detail in f_csv:
+                row = assembled_tuple(*detail)
                 dct[row.key] = row.value # replace 'key' and 'value' with header names
 
         return dct
