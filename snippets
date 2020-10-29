@@ -905,9 +905,10 @@
   'make directory':
     'prefix': 'os - make directory'
     'body': '''
+    import os
+    
     def make_directory(a):
         """Creates a directory"""
-        import os
 
         os.makedirs(a)
     '''
