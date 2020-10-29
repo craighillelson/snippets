@@ -90,7 +90,7 @@
     from datetime import datetime
     from datetime import timedelta
 
-    weekdays = [
+    weekdays = (
         'Monday',
         'Tuesday',
         'Wednesday',
@@ -98,7 +98,7 @@
         'Friday',
         'Saturday',
         'Sunday'
-    ]
+    )
 
     def get_previous_by_day(dayname, start_date=None):
         """Find last Friday's date."""
