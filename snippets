@@ -781,21 +781,12 @@
         mo = date_num_regex.search('I was born on 1989-01-22.')
         print('Date found: ' + mo.group())
     '''
-
-  'get domain name from an email address':
-    'prefix': 'str - get domain'
+    
+  'get display name, domain from an email address':
+    'prefix': 'str - get display name, domain'
     'body': '''
-    def get_domain(email_adddress):
-        """Extract domain from email address."""
-        return email_adddress.split('@')[1]
-    '''
-
-  'get username from an email address':
-    'prefix': 'str - get username'
-    'body': '''
-    def get_email_prefix(email_adddress):
-        """ """
-        return email_adddress.split('@')[0]
+    email = "paul@beatles.com"
+    display_name, domain = email.split("@")
     '''
 
   'split string':
