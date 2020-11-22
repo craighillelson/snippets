@@ -42,14 +42,6 @@
     'prefix': 'str - replace text in a string'
     'body': '"Peter Criss".replace("Peter Criss", "Eric Carr")'
 
-  'import random':
-    'prefix': 'random'
-    'body': 'import random'
-
-  'import re':
-    'prefix': 're'
-    'body': 'import re'
-
   'import US holidays, requires https://pypi.org/project/holidays/':
     'prefix': 'holidays'
     'body': '''
@@ -70,7 +62,7 @@
     'prefix': 'weekday'
     'body': '''
     import datetime
-    
+
     def not_weekend():
         """
         Determine if today is a weekday. Return 'weekend' if the date falls
@@ -317,7 +309,7 @@
 
   'create empty set':
     'prefix': 'set - create'
-    'body': 's = set() # rename set to make it meaningful'
+    'body': 's = set() # rename s to make it meaningful'
 
   'add item to set':
     'prefix': 'set - add item'
@@ -672,9 +664,10 @@
   'write dictionary to csv':
     'prefix': 'csv write dictionary to csv'
     'body': '''
+    import csv
+
     def write_dct_to_csv(file, DCT, HEADERS):
         """Write dictionary to csv."""
-        import csv
 
         with open(file, 'w') as out_file:
             out_csv = csv.writer(out_file)
@@ -689,9 +682,10 @@
   'write list to csv':
     'prefix': 'csv write list to csv'
     'body': '''
+    import csv
+
     def write_lst_to_csv(file, LST, HEADER):
         """Write list to csv """
-        import csv
 
         with open(file, 'w') as out_file:
             out_csv = csv.writer(out_file)
@@ -719,7 +713,7 @@
     'prefix': 'text file'
     'body': '''
     FILE = open('file.txt', 'w')
-    
+
     for item in lst:
         FILE.write(item)
     '''
@@ -749,9 +743,9 @@
   'find phone number in a string':
     'prefix': 'regex - find phone number'
     'body': '''
+    import re
     def find_phone_number():
         """Find phone number in a string."""
-        import re
 
         phone_num_regex = re.compile(r'\\\\d{3}-\\\\d{3}-\\\\d{4}')
         mo = phone_num_regex.search('My number is 212-555-1212.')
@@ -773,15 +767,17 @@
   'find date in a string':
     'prefix': 'regex - find date in YYYY-MM-DD format'
     'body': '''
+
+    import re
+
     def find_date():
         """Find date in a string."""
-        import re
 
         date_num_regex = re.compile(r'\\\\d{4}-\\\\d{2}-\\\\\d{2}')
         mo = date_num_regex.search('I was born on 1989-01-22.')
         print('Date found: ' + mo.group())
     '''
-    
+
   'get display name, domain from an email address':
     'prefix': 'str - get display name, domain'
     'body': '''
@@ -804,12 +800,13 @@
   to see':
     'prefix': 'prompt user'
     'body': '''
+    import pyinputplus as pyip
+
     def prompt_user_for_number():
         """
         Prompt user for the number of most frequently occurring items
         they'd like to see, validating that they input an integer.
         """
-        import pyinputplus as pyip
 
         print("Enter the number of most frequently occurring items you'd like "
               "to see.")
@@ -902,7 +899,7 @@
     'prefix': 'os - make directory'
     'body': '''
     import os
-    
+
     def make_directory(a):
         """Creates a directory"""
 
