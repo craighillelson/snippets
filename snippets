@@ -32,9 +32,9 @@
   'find string regardless of case':
     'prefix': 'str - find match regardless of case'
     'body':'''
+    import re
     def find_match_ignore_case(TEXT, TEXT_TO_FIND):
         """Find text matches in a string, regardless of case."""
-        import re
         return re.findall(TEXT, TEXT_TO_FIND, flags=re.IGNORECASE)
     '''
 
@@ -80,8 +80,8 @@
   'find last friday\'s date':
     'prefix': 'last friday'
     'body': '''
-    from datetime import datetime
-    from datetime import timedelta
+    from datetime import (datetime,
+                          timedelta)
 
     weekdays = (
         'Monday',
@@ -109,13 +109,13 @@
   'days from now':
     'prefix': 'determine the date a given number of days from  today\'s date'
     'body': '''
+    import datetime
+
     def days_from_now(a):
         """
         Take today's date and calculate a number of days from same.
         The number of days is specified in the function's argument.
         """
-
-        import datetime
 
         start_date = datetime.datetime.now() + datetime.timedelta(a)
         return start_date.date()
@@ -431,9 +431,10 @@
   'string to date':
     'prefix': 'convert string to date'
     'body': '''
+    from datetime import datetime
+
     def string_to_date(a):
         """Convert string to date object."""
-        from datetime import datetime
 
         date_time = a
         date_strptime = datetime.strptime(date_time, '%Y-%m-%d %H:%M')
@@ -443,10 +444,10 @@
   'yesterday YYYY-MM-DD':
     'prefix': 'get yesterday\'s date'
     'body': '''
+    from datetime import (datetime,
+                          timedelta)
     def get_yesterday():
         """Get yesterday's date."""
-        from datetime import datetime
-        from datetime import timedelta
 
         return str(datetime.strftime(datetime.now() - timedelta(1), '%Y-%m-%d'))
     '''
@@ -462,10 +463,11 @@
   'today - Day, Month date, YYYY':
     'prefix': 'today Month date, YYYY'
     'body': '''
+    from datetime import (date,
+                          datetime)
+
     def date_format_day_m_d_y(a):
         """Format date as '%A, %B %d, %Y'."""
-        from datetime import date
-        from datetime import datetime
 
         return datetime.strftime(a, '%A, %B %d, %Y')
     '''
@@ -473,9 +475,10 @@
   'format string as datetime object in YYYY-MM-DD format':
     'prefix': 'datetime format'
     'body': '''
+    from datetime import datetime
+
     def datetime_format(a, b):
         """Format string as datetime object."""
-        from datetime import datetime
 
         date_strptime = datetime.strptime(a, b) # date string, format
         return date_strptime.date()
@@ -484,10 +487,10 @@
   'get difference between two dates in minutes':
     'prefix': 'dates diff minutes'
     'body': '''
+    from datetime import datetime
+
     def diff_dates_minutes(a, b):
         """Get the differece in minutes between two datetime objects."""
-
-        from datetime import datetime
 
         FMT = '%Y-%m-%d %H:%M:%S'
         D1 = datetime.strptime(a, FMT)
@@ -500,11 +503,11 @@
   'get the difference between two dates in days':
     'prefix': 'dates diff days'
     'body': '''
+    import (datetime,
+            date)
     def diff_days_from_today(a):
         """Get the difference in days between a user specified date and today's
          date."""
-        import datetime
-        from datetime import date
 
         TODAY = date.today()
         DELTA = TODAY - a
@@ -531,45 +534,22 @@
     '''
 
   'test to see if user input is in YYYY-MM-DD format':
-    'prefix': 'date regex YYYY-MM-DD'
+    'prefix': 'user input - validate YYYY-MM-DD format'
     'body': '''
-    def is_date(text):
-        """Test to see if user input is in YYYY-MM-DD format."""
-        if len(text) != 10:
-            return False
-        for i in range(0, 4):
-            if not text[i].isdecimal():
-                return False
-        if text[4] != '-':
-            return False
-        for i in range(5, 7):
-            if not text[i].isdecimal():
-                return False
-        if text[7] != '-':
-            return False
-        for i in range(8, 10):
-            if not text[i].isdecimal():
-                return False
-        return True
+    import pyinputplus as pyip
 
-
-    while True:
-        print('please enter a date in YYYY-MM-DD format')
-        usr_date = input('> ')
-        if is_date(usr_date) == True:
-            print('thank you')
-            break
-        else:
-            pass
+    def prompt_user_for_date():
+        return pyip.inputDate(formats=["%Y-%m-%d"])
     '''
 
   'timestamp to string':
     'prefix': 'str - format timestamp as a string'
     'body': '''
+    import time
+    from datetime import datetime
+
     def timestamp_to_str():
         """Format a timestamp as a string."""
-        import time
-        from datetime import datetime
 
         timestamp = time.time()
         a = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d_%H-%M-%S')
@@ -666,13 +646,13 @@
     'body': '''
     import csv
 
-    def write_dct_to_csv(file, DCT, HEADERS):
+    def write_dct_to_csv(file, dct, headers):
         """Write dictionary to csv."""
 
         with open(file, 'w') as out_file:
             out_csv = csv.writer(out_file)
-            out_csv.writerow(HEADERS)
-            for k, v in DCT.items():
+            out_csv.writerow(headers)
+            for k, v in dct.items():
                 keys_values = (k, v) # rename keys and values to make to make them meaningful
                 out_csv.writerow(keys_values)
 
@@ -721,10 +701,9 @@
   'generate a list of random numbers':
     'prefix': 'list - random'
     'body': '''
+    import random
     def generate_list_of_random_numbers():
         """Generate a list of random numbers within specifiied paramaters."""
-
-        import random
 
         return random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
     '''
@@ -744,6 +723,7 @@
     'prefix': 'regex - find phone number'
     'body': '''
     import re
+
     def find_phone_number():
         """Find phone number in a string."""
 
@@ -781,7 +761,7 @@
   'get display name, domain from an email address':
     'prefix': 'str - get display name, domain'
     'body': '''
-    email = "paul@beatles.com"
+    email = "paul@kissonline.com"
     display_name, domain = email.split("@")
     '''
 
