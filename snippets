@@ -43,13 +43,12 @@
     'body': '"Peter Criss".replace("Peter Criss", "Eric Carr")'
 
   'import US holidays, requires https://pypi.org/project/holidays/':
-    'prefix': 'holidays'
+    'prefix': 'dates - holidays'
     'body': '''
     from datetime import date
     import holidays
 
     today = date.today()
-
     us_holidays = holidays.US()
 
     if today in us_holidays:
@@ -58,12 +57,12 @@
         print('not a holiday')
     '''
 
-  'is today a weekday':
-    'prefix': 'weekday'
+  'checks to see if is today is a weekday or a weekend day':
+    'prefix': 'dates - weekend'
     'body': '''
     import datetime
 
-    def not_weekend():
+    def weekend():
         """
         Determine if today is a weekday. Return 'weekend' if the date falls
         on a weekend. Return 'not a weekend' if the date does not fall on a
@@ -78,7 +77,7 @@
     '''
 
   'find last friday\'s date':
-    'prefix': 'last friday'
+    'prefix': 'dates - last friday'
     'body': '''
     from datetime import (datetime,
                           timedelta)
@@ -107,7 +106,7 @@
     '''
 
   'days from now':
-    'prefix': 'determine the date a given number of days from  today\'s date'
+    'prefix': 'dates - determine the date a given number of days from  today\'s date'
     'body': '''
     import datetime
 
@@ -120,10 +119,6 @@
         start_date = datetime.datetime.now() + datetime.timedelta(a)
         return start_date.date()
     '''
-
-  'from itertools import cycle':
-    'prefix': 'cycle'
-    'body': 'from itertools import cycle'
 
   'find all permutations of a string':
     'prefix': 'str - permutations'
@@ -217,8 +212,8 @@
     'prefix': 'list - output enumerated for loop'
     'body': '''
     def output_enumerated_list(lst):
-        for i, j in enumerate(lst, 1): # rename variable to make it meaningful
-            print(i, j) # process row
+        for num, j in enumerate(lst, 1): # rename variable to make it meaningful
+            print(num, j) # process row
     '''
 
   'print header and elements of a list on the same line':
@@ -356,7 +351,7 @@
     '''
 
   'for loop indexed':
-    'prefix': 'for loop - indexed'
+    'prefix': 'list - indexed for loop'
     'body': '''
     for i in range(a, n, s): # a - start, n - stop, s - step
         # process i
@@ -442,7 +437,7 @@
     '''
 
   'yesterday YYYY-MM-DD':
-    'prefix': 'get yesterday\'s date'
+    'prefix': 'dates - get yesterday\'s date'
     'body': '''
     from datetime import (datetime,
                           timedelta)
@@ -453,7 +448,7 @@
     '''
 
   'today YYYY-MM-DD':
-    'prefix': 'today YYYY-MM-DD'
+    'prefix': 'dates - today YYYY-MM-DD'
     'body': '''
     from datetime import date
 
@@ -461,7 +456,7 @@
     '''
 
   'today - Day, Month date, YYYY':
-    'prefix': 'today Month date, YYYY'
+    'prefix': 'dates - today Month date, YYYY'
     'body': '''
     from datetime import (date,
                           datetime)
@@ -634,7 +629,7 @@
     '''
 
   'open csv with pandas':
-    'prefix': 'csv open with pandas'
+    'prefix': 'csv - open with pandas'
     'body': '''
     import pandas as pd
 
@@ -642,7 +637,7 @@
     '''
 
   'write dictionary to csv':
-    'prefix': 'csv write dictionary to csv'
+    'prefix': 'csv - write dictionary to csv'
     'body': '''
     import csv
 
@@ -660,7 +655,7 @@
     '''
 
   'write list to csv':
-    'prefix': 'csv write list to csv'
+    'prefix': 'csv - write list to csv'
     'body': '''
     import csv
 
@@ -692,7 +687,7 @@
   'write to text file':
     'prefix': 'text file'
     'body': '''
-    FILE = open('file.txt', 'w')
+    FILE = open('file_name.txt', 'w') # replace 'file_name.txt'
 
     for item in lst:
         FILE.write(item)
@@ -778,7 +773,7 @@
 
   'prompt user for the number of most frequently occurring items they\'d like \
   to see':
-    'prefix': 'prompt user'
+    'prefix': 'prompt user for a number'
     'body': '''
     import pyinputplus as pyip
 
@@ -864,19 +859,15 @@
             break
         directories = directories + [directory]
 
-    print("\\\\n")
-
     for directory in directories:
         if os.path.exists(directory) == True:
-            print(f"{directory} exists")
+            print(f"\\\\n{directory} exists\\\\n")
         else:
-            print(f"{directory} does not exist")
-
-    print("\\\\n")
+            print(f"\\\\n{directory} does not exist\\\\n")
     '''
 
   'make directory':
-    'prefix': 'os - make directory'
+    'prefix': 'directories - make directory'
     'body': '''
     import os
 
@@ -887,27 +878,27 @@
     '''
 
   'string starts with':
-    'prefix': 'startswith'
+    'prefix': 'str - startswith'
     'body': 'text.startswith(\'foo\') # replace \'text\' and \'foo\''
 
   'string ends with':
-    'prefix': 'endswith'
+    'prefix': 'str - endswith'
     'body': 'text.endswith(\'foo\') # replace \'text\' and \'foo\''
 
   'all elements in a list':
-    'prefix': 'all'
+    'prefix': 'list - all'
     'body': 'all(lst) # replace lst'
 
   'any element in a list':
-    'prefix': 'any'
+    'prefix': 'list - any'
     'body': 'any(lst) # replace lst'
 
   'find highest value in a list':
-    'prefix': 'max'
+    'prefix': 'list - max'
     'body': 'max(lst) # replace lst'
 
   'find lowest value in a list':
-    'prefix': 'min'
+    'prefix': 'lisg - min'
     'body': 'min(lst) # replace lst'
 
   'range of a list':
