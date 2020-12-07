@@ -192,7 +192,10 @@
 
   'insert':
     'prefix': 'list - insert'
-    'body': 'lst.insert(1, item) # replace "1" with desired list index and "item" with appropriate variable'
+    'body': '''
+    lst.insert(1, item)
+    # replace "1" with desired list index and "item" with appropriate variable
+    '''
 
   'iterate through list':
     'prefix': 'list - iterate'
@@ -227,7 +230,7 @@
     'prefix': 'lists - zip'
     'body': '''
     def zip_lists(a, b):
-        """Zip lists and return a combined list."""
+        """zip lists and return a combined list."""
         lst = []
         for item1, item2 in zip(a, b):
             item = item1, item2
@@ -240,12 +243,14 @@
     'prefix': 'list - zip longest'
     'body': '''
     from itertools import zip_longest
-    for i in zip_longest(a, b):
+    lst1 = []
+    lst2 = []
+    for i in zip_longest(lst1, lst2):
         print(i)
     '''
 
   'create test list':
-    'prefix': 'list - create test list'
+    'prefix': 'list - test'
     'body': '''
     lst = [
         'Gene',
@@ -308,16 +313,26 @@
 
   'add item to set':
     'prefix': 'set - add item'
-    'body': 'set.add(\'item\') # rename \'set\' and \'item\' to make them meaningful'
+    'body': '''
+    set.add(\'item\') # rename \'set\' and \'item\' to make them meaningful'
+    '''
 
   'create dictionary':
     'prefix': 'dct - create'
-    'body': 'DCT = {} # make dictinary name meaningful'
+    'body': 'dct = {} # make dictinary name meaningful'
+
+  'make a list of dictionary keys':
+    'prefix': 'dct - make list of dictionary keys'
+    'body': 'lst = list(dct.keys())'
+
+  'make a list of dictionary values':
+    'prefix': 'dct - make list of dictionary values'
+    'body': 'lst = list(dct.values())'
 
   'create test dictionary':
     'prefix': 'dct - create test dictionary'
     'body': '''
-    DCT = {
+    dct = {
         'Gene': 'bass',
         'Paul': 'guitar',
         'Peter': 'drums',
@@ -332,8 +347,8 @@
   'loop through dictionary enumerating items starting at 1':
     'prefix': 'dct - enumerated'
     'body': '''
-    for i, (k, v) in enumerate(DCT.items(), 1):
-        print(f'{i} {k} {v}')
+    for num, (k, v) in enumerate(DCT.items(), 1):
+        print(f'{num} {k} {v}')
     '''
 
   'for loop dictionary':
@@ -424,7 +439,7 @@
     'body': 'print(RTN())'
 
   'string to date':
-    'prefix': 'convert string to date'
+    'prefix': 'str - convert string to date'
     'body': '''
     from datetime import datetime
 
@@ -971,8 +986,22 @@
     print(usr_choice)
     '''
 
-  'create ec2':
-    'prefix': 'boto3 create ec2'
+  'list buckets':
+      'prefix': 'boto3 - s3'
+      'body': '''
+      import boto3
+
+      s3 = boto3.client('s3')
+      response = s3.list_buckets()
+
+      print("\\\\nS3 buckets")
+      for num, bucket in enumerate(response['Buckets'], 1):
+          print(f"{num}. {bucket['Name']}")
+      print("\\\\n")
+      '''
+
+  'create ec2 instance':
+    'prefix': 'boto3 - ec2'
     'body': '''
     import os
     import boto3
