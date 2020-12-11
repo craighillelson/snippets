@@ -177,7 +177,7 @@
     lst.random(lst)
     '''
 
-  'append to list':
+  'append list':
     'prefix': 'list - append'
     'body': 'lst.append(a) # rename "lst" and "a"'
 
@@ -190,11 +190,17 @@
         return lst
     '''
 
-  'insert':
+  'insert item into list':
     'prefix': 'list - insert'
     'body': '''
     lst.insert(1, item)
     # replace "1" with desired list index and "item" with appropriate variable
+    '''
+
+  'extend list':
+    'prefix': 'list - extend'
+    'body': '''
+    lst1.extend(lst2)
     '''
 
   'iterate through list':
@@ -987,18 +993,18 @@
     '''
 
   'list buckets':
-      'prefix': 'boto3 - s3'
-      'body': '''
-      import boto3
+    'prefix': 'boto3 - s3'
+    'body': '''
+    import boto3
 
-      s3 = boto3.client('s3')
-      response = s3.list_buckets()
+    s3 = boto3.client('s3')
+    response = s3.list_buckets()
 
-      print("\\\\nS3 buckets")
-      for num, bucket in enumerate(response['Buckets'], 1):
-          print(f"{num}. {bucket['Name']}")
-      print("\\\\n")
-      '''
+    print("\\\\nS3 buckets")
+    for num, bucket in enumerate(response['Buckets'], 1):
+        print(f"{num}. {bucket['Name']}")
+    print("\\\\n")
+    '''
 
   'create ec2 instance':
     'prefix': 'boto3 - ec2'
