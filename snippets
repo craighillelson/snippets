@@ -203,6 +203,12 @@
     lst1.extend(lst2)
     '''
 
+  'extend list excluding dupicates':
+    'prefix': 'list - extend, no duplicates'
+    'body': '''
+    lst1.extend(i for i in lst2 if i not in lst1)
+    '''
+
   'iterate through list':
     'prefix': 'list - iterate'
     'body': '''
