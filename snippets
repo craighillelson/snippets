@@ -572,7 +572,7 @@
     '''
 
   'timestamp to string':
-    'prefix': 'str - format timestamp as a string'
+    'prefix': 'timestamp'
     'body': '''
     import time
     from datetime import datetime
@@ -584,6 +584,15 @@
         a = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d_%H-%M-%S')
 
         return a
+    '''
+
+  'format unix timestamp as a string':
+    'prefix': 'timestamp - unix'
+    'body': '''
+    import datetime
+    timestamp_str = datetime.datetime.fromtimestamp(int(
+                                                    unix_timestamp)).strftime(
+                                                    "%Y-%m-%d %H:%M:%S")
     '''
 
   'open csv':
