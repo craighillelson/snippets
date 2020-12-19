@@ -136,30 +136,6 @@
         return lst
     '''
 
-  'augmented assignment - add':
-    'prefix': 'add'
-    'body': '+='
-
-  'augmented assignment - subtract':
-    'prefix': 'subtract'
-    'body': '-='
-
-  'augmented assignment - multiply':
-    'prefix': 'multiply'
-    'body': '*='
-
-  'augmented assignment - divide':
-    'prefix': 'divide'
-    'body': '/='
-
-  'augmented assignment - modulus':
-    'prefix': 'modulus'
-    'body': '%='
-
-  'create list':
-    'prefix': 'list - create'
-    'body': 'lst = []'
-
   'sort list':
     'prefix': 'list - sort'
     'body': 'lst.sort()'
@@ -197,7 +173,7 @@
     # replace "1" with desired list index and "item" with appropriate variable
     '''
 
-  'extend list':
+  'extend a list by appending a second list':
     'prefix': 'list - extend'
     'body': '''
     lst1.extend(lst2)
@@ -361,26 +337,26 @@
 
   'delete item':
     'prefix': 'dct - delete item'
-    'body': 'del DCT[key] # update DCT and key'
+    'body': 'del dct[key] # update dct and key'
 
   'loop through dictionary enumerating items starting at 1':
     'prefix': 'dct - enumerated'
     'body': '''
-    for num, (k, v) in enumerate(DCT.items(), 1):
+    for num, (k, v) in enumerate(dct.items(), 1):
         print(f'{num} {k} {v}')
     '''
 
   'for loop dictionary':
     'prefix': 'dct - for loop'
     'body': '''
-    for k, v in DCT.items(): # rename dct, keys, and values to make them meaningful
+    for k, v in dct.items(): # rename dct, keys, and values to make them meaningful
         # process row
     '''
 
   'compare two dictionaries':
     'prefix': 'dct - compare two dictionaries'
     'body': '''
-    for (k, v), (k2, v2) in zip(DCT1.items(), DCT2.items()):
+    for (k, v), (k2, v2) in zip(dct1.items(), dct2.items()):
         print(f'{k} {v} - {k2} {v2}')
     '''
 
@@ -394,42 +370,42 @@
   'sort dictionary by keys':
     'prefix': 'dct - sort by keys'
     'body': '''
-    for k, v in sorted(DCT.items()): # rename keys and values to make them meaningful
+    for k, v in sorted(dct.items()): # rename keys and values to make them meaningful
         # process row
     '''
 
   'sort dictionary by values':
     'prefix': 'dct - sort by values'
     'body': '''
-    for k, v in sorted(DCT.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
+    for k, v in sorted(dct.items(), key=lambda x: x[1], reverse=True): # rename keys and values to make them meaningful
         # process row
     '''
 
   'group dictionary by values':
     'prefix': 'dct - group by values'
     'body': '''
-    DCT = {}
-    DCT_GROUPED_BY_VALUES = {}
+    dct = {}
+    dct_grouped_by_values = {}
 
-    for k, v in sorted(DCT.items()):
-        DCT_GROUPED_BY_VALUES.setdefault(v, []).append(k)
+    for k, v in sorted(dct.items()):
+        dct_grouped_by_values.setdefault(v, []).append(k)
     '''
 
   'merge dictionaries':
     'prefix': 'dct - merge dictionaries'
-    'body': 'DCT3 = {**DCT1, **DCT2}'
+    'body': 'dct3 = {**dct1, **dct2}'
 
   'create set of values comprised of the differences between two dictionaries':
     'prefix': 'set - get diff'
-    'body': 'DIFF = set(DCT1.items()) ^ set(DCT2.items())'
+    'body': 'DIFF = set(dct1.items()) ^ set(dct2.items())'
 
   'create a set comprised of the differences between two dictionaries\' keys':
     'prefix': 'dct - diff keys'
-    'body': 'DCT1.keys() - DCT2.keys()'
+    'body': 'dct1.keys() - dct2.keys()'
 
   'create a dictionary of items common to two dictionaries':
     'prefix': 'dct - items common to two dictionaries'
-    'body': 'COMMON_ITEMS = dict(DCT1.items() & DCT2.items())'
+    'body': 'COMMON_ITEMS = dict(dct1.items() & dct2.items())'
 
   'create set of values common to two sets':
     'prefix': 'set_items_common_to_two_sets'
@@ -481,7 +457,7 @@
         return str(datetime.strftime(datetime.now() - timedelta(1), '%Y-%m-%d'))
     '''
 
-  'today YYYY-MM-DD':
+  'today: YYYY-MM-DD':
     'prefix': 'dates - today YYYY-MM-DD'
     'body': '''
     from datetime import date
@@ -489,7 +465,7 @@
     today = date.today() # yields today's date in YYYY-MM-DD format
     '''
 
-  'today - Day, Month date, YYYY':
+  'today: Day, Month date, YYYY':
     'prefix': 'dates - today Month date, YYYY'
     'body': '''
     from datetime import (date,
@@ -502,7 +478,7 @@
     '''
 
   'format string as datetime object in YYYY-MM-DD format':
-    'prefix': 'datetime format'
+    'prefix': 'dates - datetime format'
     'body': '''
     from datetime import datetime
 
@@ -514,7 +490,7 @@
     '''
 
   'get difference between two dates in minutes':
-    'prefix': 'dates diff minutes'
+    'prefix': 'dates - diff minutes'
     'body': '''
     from datetime import datetime
 
@@ -530,7 +506,7 @@
     '''
 
   'get the difference between two dates in days':
-    'prefix': 'dates diff days'
+    'prefix': 'dates - diff days'
     'body': '''
     import (datetime,
             date)
@@ -547,7 +523,7 @@
     '''
 
   'get the difference between two dates in weeks':
-    'prefix': 'dates diff weeks'
+    'prefix': 'dates - diff weeks'
     'body': '''
     import datetime
     from datetime import date
@@ -596,7 +572,7 @@
     '''
 
   'open csv':
-    'prefix': 'csv open namedtuple'
+    'prefix': 'csv - open namedtuple'
     'body': '''
     import csv
     from collections import namedtuple
@@ -618,7 +594,7 @@
     '''
 
   'open csv DictReader':
-    'prefix': 'csv open with DictReader'
+    'prefix': 'csv - open with DictReader'
     'body': '''
     import csv
 
@@ -636,7 +612,7 @@
     '''
 
   'open csv edit headers':
-    'prefix': 'csv open edit headers'
+    'prefix': 'csv - open edit headers'
     'body': '''
     from collections import namedtuple
     import csv
@@ -702,12 +678,12 @@
     'body': '''
     import csv
 
-    def write_lst_to_csv(file, LST, HEADER):
+    def write_lst_to_csv(file, lst, header):
         """Write list to csv """
 
         with open(file, 'w') as out_file:
             out_csv = csv.writer(out_file)
-            out_csv.writerow(HEADER)
+            out_csv.writerow(header)
             for i in LST: # rename i to make it meaningful
                 out_csv.writerow([i])
 
@@ -816,7 +792,7 @@
 
   'prompt user for the number of most frequently occurring items they\'d like \
   to see':
-    'prefix': 'prompt user for a number'
+    'prefix': 'user input - prompt for a number'
     'body': '''
     import pyinputplus as pyip
 
@@ -841,7 +817,7 @@
     '''
 
   'format a number as a float':
-    'prefix': 'format float'
+    'prefix': 'number - format float'
     'body': '''
     num = 22/7 # set num to any value you want
     num = float(num)
@@ -849,7 +825,7 @@
     '''
 
   'format to include thousands separator':
-    'prefix': 'format thousands separator'
+    'prefix': 'number - format thousands separator'
     'body': '''
     num = 1234.567 # replace 1234.567
     num_fmt = format(x,  '0,.1f')
@@ -857,7 +833,7 @@
     '''
 
   'format as a percentage':
-    'prefix': 'format percentage'
+    'prefix': 'number - format percentage'
     'body': '''
     def format_percentage(num, total):
         """Format percentage to the second decimal place."""
