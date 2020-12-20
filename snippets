@@ -999,8 +999,8 @@
     print(usr_choice)
     '''
 
-  'present user with a menu':
-    'prefix': 'menu'
+  'present user with a menu - imports':
+    'prefix': 'menu - imports'
     'body': '''
     import pyinputplus as pyip
     import importlib
@@ -1027,6 +1027,40 @@
 
     choice = pyip.inputInt("\\\\n> ")
     importlib.import_module(menu(choice))
+    '''
+
+  'present user with a menu - functions':
+    'prefix': 'menu - functions'
+    'body': '''
+    import pyinputplus as pyip
+
+
+    def menu():
+        def func_1():
+            print("func 1")
+
+
+        def func_2():
+            print("func 2")
+
+
+        def func_3():
+            print("func 3")
+
+
+        functions_map = {
+            1: func_1,
+            2: func_2,
+            3: func_3
+        }
+
+        print("\\\\nplease select an option below or nothing to exit\\\\n")
+        for num, action in functions_map.items():
+            print(num, action.__name__)
+        usr_choice = pyip.inputInt("> ", min=1, blank=True)
+        functions_map[usr_choice]()
+
+    menu()
     '''
 
   'list buckets':
