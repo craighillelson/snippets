@@ -302,6 +302,10 @@
             print('invalid')
     '''
 
+  'list comprehension replacing spaces with underscores':
+    'prefix': 'list - replace spaces'
+    'body': '[re.sub("[^a-zA-Z_]", "_", element) for element in lst]'
+
   'create empty set':
     'prefix': 'set - create'
     'body': 's = set() # rename s to make it meaningful'
@@ -619,10 +623,10 @@
     import re
 
     with open("file_name.csv") as f: # replace "file_name.csv" with  actual file name
-        F_CSV = csv.reader(f)
-        HEADERS = [re.sub('[^a-zA-Z_]', '_', h) for h in next(F_CSV)]
-        assembled_tuple = namedtuple('assembled_tuple', HEADERS)
-        for r in F_CSV:
+        f_csv = csv.reader(f)
+        headers = [re.sub('[^a-zA-Z_]', '_', h) for h in next(f_csv)]
+        assembled_tuple = namedtuple('assembled_tuple', headers)
+        for r in f_csv:
             row = assembled_tuple(*r)
             # process row
     '''
