@@ -999,6 +999,36 @@
     print(usr_choice)
     '''
 
+  'present user with a menu':
+    'prefix': 'menu'
+    'body': '''
+    import pyinputplus as pyip
+    import importlib
+
+
+    def menu(argument):
+        """Switch case statement."""
+
+        return choices_enum.get(argument, 'nothing')
+
+
+    choices = [
+        'file_1',
+        'file_2',
+        'file_3',
+    ]
+
+    choices_enum = {}
+
+    print("\\\\nplease select from the choices below")
+    for num, choice in enumerate(choices, 1):
+        print(f"{num}. {choice}")
+        choices_enum[num] = choice
+
+    choice = pyip.inputInt("\\\\n> ")
+    importlib.import_module(menu(choice))
+    '''
+
   'list buckets':
     'prefix': 'boto3 - s3'
     'body': '''
