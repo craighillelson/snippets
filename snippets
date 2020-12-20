@@ -304,7 +304,12 @@
 
   'list comprehension replacing spaces with underscores':
     'prefix': 'list - replace spaces'
-    'body': '[re.sub("[^a-zA-Z_]", "_", element) for element in lst]'
+    'body': '''
+    import re
+
+    def replace_spaces_with_underscores(lst):
+        return [re.sub("[^a-zA-Z_]", "_", element) for element in lst]
+    '''
 
   'create empty set':
     'prefix': 'set - create'
