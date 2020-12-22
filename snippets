@@ -21,6 +21,14 @@
     'prefix': 'doc'
     'body': '"""__doc__"""'
 
+  'list comp - underscores for spaces':
+    'prefix': 'replace spaces with underscores'
+    'body': '''
+    import os
+    lst = [os.rename(filename, filename.replace(" ", "_").lower()) for \
+           filename in os.listdir(".") if not filename.startswith(".")]
+    '''
+
   'concatenate strings':
     'prefix': 'str - concatenate'
     'body': '''
