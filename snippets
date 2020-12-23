@@ -644,6 +644,18 @@
             # process row
     '''
 
+  'open csv with csv.reader':
+    'prefix': 'csv - csv.reader'
+    'body': '''
+    import csv
+
+    with open('file.csv', newline='') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        headings = next(spamreader)
+        for row in spamreader:
+            print(' '.join(row))
+    '''
+
   'json read':
     'prefix': 'read json data'
     'body': '''
