@@ -738,10 +738,11 @@
   'write to text file':
     'prefix': 'text file'
     'body': '''
-    FILE = open('file_name.txt', 'w') # replace 'file_name.txt'
+    def write_to_a_text_file():
+        FILE = open('file_name.txt', 'w') # replace 'file_name.txt'
 
-    for item in lst:
-        FILE.write(item)
+        for item in lst:
+            FILE.write(item)
     '''
 
   'generate a list of random numbers':
