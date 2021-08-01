@@ -808,8 +808,9 @@
   'get display name, domain from an email address':
     'prefix': 'str - split display name, domain'
     'body': '''
-    email = "paul@kissonline.com"
-    display_name, domain = email.split("@")
+    def get_email_prefix_and_domain(email):
+        display_name, domain = email.split("@")
+        return display_name, domain
     '''
 
   'split string':
