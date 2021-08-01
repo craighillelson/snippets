@@ -592,20 +592,19 @@
     '''
 
   'open csv':
-    'prefix': 'csv - open namedtuple'
+    'prefix': 'csv - open with named tuples'
     'body': '''
     import csv
     from collections import namedtuple
 
-    def open_csv_pop_dct_namedtuple(file_name):
-        """Open a csv and populate a dictionary."""
+    def open_csv_and_populate_dct(file_name):
 
         dct = {}
 
         with open(file_name) as csv_file:
             f_csv = csv.reader(csv_file)
             headings = next(f_csv)
-            assembled_tuple = namedtuple('assembled_tuple', headings)
+            assembled_tuple = namedtuple("assembled_tuple", headings)
             for detail in f_csv:
                 row = assembled_tuple(*detail)
                 dct[row.key] = row.value # replace 'key' and 'value' with header names
@@ -695,9 +694,8 @@
     import csv
 
     def write_dct_to_csv(file, dct, headers):
-        """Write dictionary to csv."""
 
-        with open(file, 'w') as out_file:
+        with open(file, "w") as out_file:
             out_csv = csv.writer(out_file)
             out_csv.writerow(headers)
             for k, v in dct.items():
@@ -1187,7 +1185,7 @@
   'create a presigned url':
     'prefix': 'aws s3 presigned'
     'body': '''
-    aws s3 presign s3://{my_bucket_name/private_object} \\\\ 
+    aws s3 presign s3://{my_bucket_name/private_object} \\\\
     --expires-in 600
     '''
 
