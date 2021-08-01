@@ -105,17 +105,12 @@
         return target_date
     '''
 
-  'days from now':
-    'prefix': 'dates - determine the date a given number of days from  today\'s date'
+  'determine the date a given number of days from  today\'s date':
+    'prefix': 'dates - days from now'
     'body': '''
     import datetime
 
     def days_from_now(a):
-        """
-        Take today's date and calculate a number of days from same.
-        The number of days is specified in the function's argument.
-        """
-
         start_date = datetime.datetime.now() + datetime.timedelta(a)
         return start_date.date()
     '''
