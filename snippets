@@ -499,9 +499,7 @@
     'body': '''
     from datetime import datetime
 
-    def datetime_format(a, b):
-        """Format string as datetime object."""
-
+    def format_string_as_datetime_object(a, b):
         date_strptime = datetime.strptime(a, b) # date string, format
         return date_strptime.date()
     '''
