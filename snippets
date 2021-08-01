@@ -261,14 +261,14 @@
   'if variable in list':
     'prefix': 'list - if in'
     'body': '''
-    if x in: # rename variable to make it meaningful
+    if x in lst: # rename x and lst to make them meaningful
         # process row
     '''
 
   'if variable not in list':
     'prefix': 'list - if not in'
     'body': '''
-    if x not in lst:
+    if x not in lst: # rename x and lst to make them meaningful
         # process row
     '''
 
