@@ -522,11 +522,10 @@
   'get the difference between two dates in days':
     'prefix': 'dates - diff days'
     'body': '''
-    import (datetime,
-            date)
+    from datetime import (datetime,
+                          date)
+
     def diff_days_from_today(a):
-        """Get the difference in days between a user specified date and today's
-         date."""
 
         TODAY = date.today()
         DELTA = TODAY - a
