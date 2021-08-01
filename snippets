@@ -469,9 +469,8 @@
     'body': '''
     from datetime import (datetime,
                           timedelta)
-    def get_yesterday():
-        """Get yesterday's date."""
 
+    def get_yesterdays_date():
         return str(datetime.strftime(datetime.now() - timedelta(1), '%Y-%m-%d'))
     '''
 
