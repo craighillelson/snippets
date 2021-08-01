@@ -57,6 +57,41 @@
         print('not a holiday')
     '''
 
+  'get number of weekdays between two dates':
+    'prefix': 'dates - number of weekdays'
+    'body': '''
+    import datetime
+    from collections import Counter
+
+
+    def assemble_list_of_days():
+        weekdays = (
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+        )
+
+        lst = []
+        for num in range((date_to - date_from).days + 1):
+            date = date_from + datetime.timedelta(num)
+            day_num = date.weekday()
+            day_name = weekdays[day_num]
+            lst.append(day_name)
+
+        return lst
+
+
+    date_from = datetime.date(2021,6,1)
+    date_to = datetime.date(2021,6,30)
+    days = assemble_list_of_days()
+    days_count = dict(Counter(days))
+    print(days_count)
+    '''
+
   'checks to see if is today is a weekday or a weekend day':
     'prefix': 'dates - weekend'
     'body': '''
@@ -330,12 +365,12 @@
     'prefix': 'dct - create'
     'body': 'dct = {} # make dictinary name meaningful'
 
-  'make a list of dictionary keys':
-    'prefix': 'dct - make list of dictionary keys'
+  'get list of dictionary keys':
+    'prefix': 'dct - get dictionary keys'
     'body': 'lst = list(dct.keys())'
 
-  'make a list of dictionary values':
-    'prefix': 'dct - make list of dictionary values'
+  'get list of dictionary values':
+    'prefix': 'dct - get dictionary values'
     'body': 'lst = list(dct.values())'
 
   'create test dictionary':
@@ -600,8 +635,8 @@
         return dct
     '''
 
-  'open csv DictReader':
-    'prefix': 'csv - open with DictReader'
+  'open csv with DictReader':
+    'prefix': 'csv - open DictReader'
     'body': '''
     import csv
 
@@ -714,7 +749,6 @@
     'prefix': 'switch'
     'body': '''
     def switch_case(argument):
-        """Switch case statement."""
         switcher = {
             'a': 'option_1',
             'b': 'option_2',
@@ -737,9 +771,8 @@
     'prefix': 'list - random'
     'body': '''
     import random
-    def generate_list_of_random_numbers():
-        """Generate a list of random numbers within specifiied paramaters."""
 
+    def generate_list_of_random_numbers():
         return random.sample(range(1, 100), 3) # adapt range and number of random numbers to be generated based on the needs of your app
     '''
 
@@ -760,7 +793,6 @@
     import re
 
     def find_phone_number():
-        """Find phone number in a string."""
 
         phone_num_regex = re.compile(r'\\\\d{3}-\\\\d{3}-\\\\d{4}')
         mo = phone_num_regex.search('My number is 212-555-1212.')
@@ -945,31 +977,35 @@
         return min(lst), max(lst) # replace lst'
     '''
 
-  'find mean':
+  'get mean from a list of numbers':
     'prefix': 'mean'
     'body': '''
     import statistics
+
     statistics.mean([])
     '''
 
-  'find median':
+  'get median from a list of numbers':
     'prefix': 'median'
     'body': '''
     import statistics
+
     statistics.median([])
     '''
 
-  'find mode':
+  'get mode from a list of numbers':
     'prefix': 'mode'
     'body': '''
     import statistics
+
     statistics.mode([])
     '''
 
-  'find standard deviation':
+  'get standard deviation':
     'prefix': 'standard deviation'
     'body': '''
     import statistics
+
     statistics.stdev([])
     '''
 
