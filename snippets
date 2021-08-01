@@ -652,11 +652,12 @@
     'body': '''
     import csv
 
-    with open('file.csv', newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-        headings = next(spamreader)
-        for row in spamreader:
-            print(' '.join(row))
+    def open_csv_with_csvreader():
+        with open("file.csv", newline="") as csvfile:
+            csv_reader = csv.reader(csvfile, delimiter=" ", quotechar="|")
+            headings = next(csv_reader)
+            for row in csv_reader:
+                # process row
     '''
 
   'json read':
