@@ -581,6 +581,18 @@
     print(int(WEEKS_BETWEEN))
     '''
 
+  'convert a string in hours:minutes:seconds format to decimal hours':
+    'prefix': 'times - convert to decimal hours'
+    'body': '''
+    def convert_hours_minutes_seconds_to_decimal(a):
+        lst = a.split(":")
+        hours_in_seconds = int(lst[0]) * 3600
+        minutes_in_seconds = int(lst[1]) * 60
+        seconds = int(lst[2])
+        total_time = hours_in_seconds + minutes_in_seconds + seconds
+        return str(total_time / 60) + " hours"
+    '''
+
   'test to see if user input is in YYYY-MM-DD format':
     'prefix': 'user input - validate YYYY-MM-DD format'
     'body': '''
