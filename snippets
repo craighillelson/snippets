@@ -57,6 +57,22 @@
         print('not a holiday')
     '''
 
+  'get day of the week for a given day':
+    'prefix': 'dates - day of week'
+    'body': '''
+    def convert_date_to_days(date):
+        days = (
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+            )
+        return day[date.weekday()]
+    '''
+
   'get number of weekdays between two dates':
     'prefix': 'dates - number of weekdays'
     'body': '''
