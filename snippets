@@ -434,6 +434,20 @@
         print(f'{k} {v} - {k2} {v2}')
     '''
 
+  'combine values as lists':
+      'prefix': 'dct - combine values as lists where keys are common to both dictionaries'
+      'body': '''
+      def combine_values_as_lists_where_keys_are_common_to_both_dictionaries():
+          dct3 = {**dct1, **dct2}
+          for k, v in dct3.items():
+              if k in dct1 and k in dct2:
+                  dct3[k] = [dct1[k], v]
+              else:
+                  dct3[k] = [v]
+
+          return dct3
+    '''
+
   'for loop indexed':
     'prefix': 'list - indexed for loop'
     'body': '''
