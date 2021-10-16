@@ -494,7 +494,7 @@
 
   'create set of values comprised of the differences between two dictionaries':
     'prefix': 'set - get diff'
-    'body': 'DIFF = set(dct1.items()) ^ set(dct2.items())'
+    'body': 'diff = set(dct1.items()) ^ set(dct2.items())'
 
   'create a set comprised of the differences between two dictionaries\' keys':
     'prefix': 'dct - diff keys'
@@ -502,7 +502,7 @@
 
   'create a dictionary of items common to two dictionaries':
     'prefix': 'dct - items common to two dictionaries'
-    'body': 'COMMON_ITEMS = dict(dct1.items() & dct2.items())'
+    'body': 'common_items = dict(dct1.items() & dct2.items())'
 
   'create set of values common to two sets':
     'prefix': 'set_items_common_to_two_sets'
@@ -566,7 +566,7 @@
     from datetime import (date,
                           datetime)
 
-    def date_format_day_m_d_y(a):
+    def format_date_as_day_month_day_year(a):
         """Format date as '%A, %B %d, %Y'."""
 
         return datetime.strftime(a, '%A, %B %d, %Y')
@@ -589,12 +589,12 @@
     def diff_dates_minutes(a, b):
         """Get the differece in minutes between two datetime objects."""
 
-        FMT = '%Y-%m-%d %H:%M:%S'
-        D1 = datetime.strptime(a, FMT)
-        D2 = datetime.strptime(b, FMT)
-        DIFF = D2 - D1
+        fmt = '%Y-%m-%d %H:%M:%S'
+        date_1 = datetime.strptime(a, fmt)
+        date_2 = datetime.strptime(b, fmt)
+        diff = date_2 - date_1
 
-        return '{:.2f}'.format((DIFF.days * 24 * 60) + (DIFF.seconds/60))
+        return '{:.2f}'.format((diff.days * 24 * 60) + (diff.seconds/60))
     '''
 
   'get the difference between two dates in days':
@@ -605,12 +605,12 @@
 
     def diff_days_from_today(a):
 
-        TODAY = date.today()
-        DELTA = TODAY - a
-        if DELTA.days > 0:
-            return str(DELTA.days) + ' ago'
+        today = date.today()
+        delta = today - a
+        if delta.days > 0:
+            return str(delta.days) + ' ago'
         else:
-            return str(DELTA.days * -1) + ' from now'
+            return str(delta.days * -1) + ' from now'
     '''
 
   'get the difference between two dates in weeks':
@@ -620,13 +620,13 @@
     from datetime import date
 
     # calculate how between a given date and today
-    TODAY = date.today()
-    A_DATE = date(2019, 1, 1) # replace with whatever date you're working with
-    DELTA = TODAY - A_DATE
-    WEEKS_BETWEEN = DELTA.days / 7
+    today = date.today()
+    a_date = date(2019, 1, 1) # replace with whatever date you're working with
+    delta = today - a_date
+    weeks_between = delta.days / 7
 
-    print(A_DATE)
-    print(int(WEEKS_BETWEEN))
+    print(a_date)
+    print(int(weeks_between))
     '''
 
   'convert a string in hours:minutes:seconds format to decimal hours':
