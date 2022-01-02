@@ -303,6 +303,10 @@
         print(i)
     '''
 
+  'create empty list':
+    'prefix': 'lst'
+    'body': 'lst = [] #rename lst to make it meaningful'
+
   'create test list':
     'prefix': 'list - test'
     'body': '''
@@ -386,7 +390,7 @@
     set_a.difference(set_b)
     '''
 
-  'create dictionary':
+  'create empty dictionary':
     'prefix': 'dct - create'
     'body': 'dct = {} # make dictinary name meaningful'
 
@@ -419,7 +423,7 @@
     for num, (k, v) in enumerate(dct.items(), 1):
         print(f'{num} {k} {v}')
     '''
-  
+
   'update dictionary':
     'prefix': 'dct - update dct'
     'body': '''
@@ -651,18 +655,15 @@
     '''
 
   'timestamp to string':
-    'prefix': 'timestamp'
+    'prefix': 'timestamp - format timestamp as a string'
     'body': '''
     import time
     from datetime import datetime
 
-    def timestamp_to_str():
-        """Format a timestamp as a string."""
+    def format_timestamp_as_a_string():
 
         timestamp = time.time()
-        a = datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d_%H-%M-%S')
-
-        return a
+        return datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d_%H-%M-%S')
     '''
 
   'format unix timestamp as a string':
@@ -700,15 +701,14 @@
     'body': '''
     import csv
 
-    def open_csv_pop_dct(file_name, key, value):
-        """Open csv and populate a dictionary with its contents."""
+    def open_csv_pop_dct(file_name, k, v): # rename 'k' and 'v' to make them meaningful
 
         dct = {}
 
         with open(file_name, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                dct[row[key]] = row[value]
+                dct[row[k]] = row[v]
 
         return dct
     '''
@@ -794,7 +794,6 @@
     import csv
 
     def write_lst_to_csv(file, lst, header):
-        """Write list to csv """
 
         with open(file, 'w') as out_file:
             out_csv = csv.writer(out_file)
