@@ -14,7 +14,27 @@
     'prefix': 'doc'
     'body': '"""__doc__"""'
 
-  'list comp - underscores for spaces':
+  'single condition':
+    'prefix': 'condition - single'
+    'body': '''
+    if : # include condition before colon
+        # code to execute
+    else:
+        # code to execute
+    '''
+
+  'multiple conditions':
+    'prefix': 'conditions'
+    'body': '''
+    if : # include condition before colon
+        # code to execute
+    elif : # include condition before colon
+        # code to execute
+    else:
+        # code to execute
+    '''
+
+  'list comp - replace spaces':
     'prefix': 'replace spaces with underscores'
     'body': '''
     import os
@@ -33,8 +53,7 @@
     'prefix': 'str - find match regardless of case'
     'body':'''
     import re
-    def find_match_ignore_case(TEXT, TEXT_TO_FIND):
-        """Find text matches in a string, regardless of case."""
+    def find_text_matches_ignore_case(TEXT, TEXT_TO_FIND):
         return re.findall(TEXT, TEXT_TO_FIND, flags=re.IGNORECASE)
     '''
 
@@ -122,18 +141,12 @@
     'body': '''
     import datetime
 
-    def weekend():
-        """
-        Determine if today is a weekday. Return 'weekend' if the date falls
-        on a weekend. Return 'not a weekend' if the date does not fall on a
-        weekend.
-        """
-
+    def determine_if_today_is_a_weekend_day():
         day_index = datetime.datetime.today().weekday()
         if day_index > 4:
-            print('weekend')
+            return "weekend"
         else:
-            print('not a weekend')
+            return "not a weekend"
     '''
 
   'get last friday\'s date':
@@ -181,8 +194,6 @@
     import itertools
 
     def permutations(a_string):
-        """Return a list of all permutations of a string."""
-
         lst = []
 
         for i in itertools.permutations(a_string):
@@ -224,8 +235,7 @@
   'insert item into list':
     'prefix': 'list - insert'
     'body': '''
-    lst.insert(1, item)
-    # replace "1" with desired list index and "item" with appropriate variable
+    lst.insert(1, item) # replace "1" with desired list index and "item" with appropriate variable
     '''
 
   'extend a list by appending a second list':
@@ -670,8 +680,9 @@
     'prefix': 'timestamp - unix'
     'body': '''
     import datetime
-    timestamp_str = datetime.datetime.fromtimestamp(int(
-                                                    unix_timestamp)).strftime(
+    import time
+    unix_timestamp = time.time()
+    timestamp_str = datetime.datetime.fromtimestamp(unix_timestamp).strftime(
                                                     "%Y-%m-%d %H:%M:%S")
     '''
 
