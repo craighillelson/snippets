@@ -24,7 +24,7 @@
     '''
 
   'multiple conditions':
-    'prefix': 'conditions'
+    'prefix': 'conditions - multiple'
     'body': '''
     if : # include condition before colon
         # code to execute
@@ -990,19 +990,55 @@
     'body': '''
     import os
 
-    directories = []
-    while True:
-        print("\\\\nEnter the name of a directory.")
-        directory = input("> ")
-        if directory == "":
-            break
-        directories = directories + [directory]
 
-    for directory in directories:
-        if os.path.exists(directory) == True:
-            print(f"\\\\n{directory} exists\\\\n")
-        else:
-            print(f"\\\\n{directory} does not exist\\\\n")
+    def build_lists_of_directories(lst1):
+        lst2 = []
+        lst3 = []
+        for directory in lst1:
+            if os.path.exists(directory) == True:
+                lst2.append(directory)
+            else:
+                lst3.append(directory)
+
+        return lst2, lst3
+
+
+    def output_directories(header, lst):
+        print(header)
+        for i in lst:
+            print(i)
+
+
+    def output_singular_or_plural(singular_header, plural_header, lst):
+        if lst:
+            if len(lst) > 1:
+                output_directories(singular_header, lst)
+            else:
+                output_directories(plural_header, lst)
+
+
+    def prompt_user_for_directories():
+        lst = []
+        while True:
+            print("\\\\nEnter the names of directories or nothing to quit.")
+            directory = input("> ")
+            if directory == "":
+                break
+            lst = lst + [directory]
+
+        return lst
+
+
+    directories = prompt_user_for_directories()
+    existent_directories, nonexistent_directories = \\\\
+    build_lists_of_directories(directories)
+
+    output_singular_or_plural("\\\\nThe following directories exist",
+                              "\\\\nThe following directory exists",
+                              existent_directories)
+    output_singular_or_plural("\\\\nThe following directories do not exist",
+                              "\\\\nThe following directory does not exist",
+                              nonexistent_directories)
     '''
 
   'make directory':
