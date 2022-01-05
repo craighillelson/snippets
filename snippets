@@ -9,6 +9,35 @@
     }
     '''
 
+  'output time':
+    'prefix': 'time - output time'
+    'body': '''
+    import (
+        "fmt"
+        "time"
+    )
+
+    func main() {
+        fmt.Println(time.Now())
+    }
+    '''
+
+  'for loop':
+    'prefix': 'for loop'
+    'body': '''
+    package main
+
+    import "fmt"
+
+    func main() {
+        sum := 0
+        for i := 0; i < 10; i++ {
+            sum += i
+        }
+        fmt.Println(sum)
+    }
+    '''
+
 '.source.python':
   'doc string':
     'prefix': 'doc'
@@ -34,14 +63,6 @@
         # code to execute
     '''
 
-  'list comp - replace spaces':
-    'prefix': 'replace spaces with underscores'
-    'body': '''
-    import os
-    lst = [os.rename(filename, filename.replace(" ", "_").lower()) for \
-           filename in os.listdir(".") if not filename.startswith(".")]
-    '''
-
   'concatenate strings':
     'prefix': 'str - concatenate'
     'body': '''
@@ -60,6 +81,20 @@
   'replace text':
     'prefix': 'str - replace text in a string'
     'body': '"Peter Criss".replace("Peter Criss", "Eric Carr")'
+
+  'find all permutations of a string':
+    'prefix': 'str - permutations'
+    'body': '''
+    import itertools
+
+    def permutations(a_string):
+        lst = []
+
+        for i in itertools.permutations(a_string):
+            lst.append(i)
+
+        return lst
+    '''
 
   'import US holidays, requires https://pypi.org/project/holidays/':
     'prefix': 'dates - holidays'
@@ -188,30 +223,16 @@
         return start_date.date()
     '''
 
-  'find all permutations of a string':
-    'prefix': 'str - permutations'
-    'body': '''
-    import itertools
-
-    def permutations(a_string):
-        lst = []
-
-        for i in itertools.permutations(a_string):
-            lst.append(i)
-
-        return lst
-    '''
-
   'sort list':
-    'prefix': 'list - sort'
+    'prefix': 'lst - sort'
     'body': 'lst.sort()'
 
   'sort list reverse':
-    'prefix': 'list - sort reverse'
+    'prefix': 'lst - sort reverse'
     'body': 'lst.sort(reverse=True)'
 
   'shuffle list':
-    'prefix': 'list - shuffle'
+    'prefix': 'lst - shuffle'
     'body': '''
     import random
 
@@ -220,11 +241,11 @@
     '''
 
   'append list':
-    'prefix': 'list - append'
+    'prefix': 'lst - append'
     'body': 'lst.append(a) # rename "lst" and "a"'
 
   'remove from list':
-    'prefix': 'list - remove'
+    'prefix': 'lst - remove'
     'body': '''
     def remove_from_list(lst, a):
         """Remove an item from a list."""
@@ -233,43 +254,58 @@
     '''
 
   'insert item into list':
-    'prefix': 'list - insert'
+    'prefix': 'lst - insert'
     'body': '''
     lst.insert(1, item) # replace "1" with desired list index and "item" with appropriate variable
     '''
 
   'extend a list by appending a second list':
-    'prefix': 'list - extend'
+    'prefix': 'lst - extend'
     'body': '''
     lst1.extend(lst2)
     '''
 
   'extend list excluding dupicates':
-    'prefix': 'list - extend, no duplicates'
+    'prefix': 'lst - extend, no duplicates'
     'body': '''
     lst1.extend(i for i in lst2 if i not in lst1)
     '''
 
+  'list comp - replace spaces':
+    'prefix': 'replace spaces with underscores'
+    'body': '''
+    import os
+    lst = [os.rename(filename, filename.replace(" ", "_").lower()) for \
+           filename in os.listdir(".") if not filename.startswith(".")]
+    '''
+
   'populate a list containing elements in the first list excluding the elements that are in both lists':
-    'prefix': 'list - diffs one way'
+    'prefix': 'lst - diffs one way'
     'body': 'lst3 = [item for item in lst1 if not item in lst2]'
 
   'iterate through list':
-    'prefix': 'list - iterate'
+    'prefix': 'lst - iterate'
     'body': '''
     for i in lst: # rename variable to make it meaningful
         # process row
     '''
 
+  'iterate through sorted list':
+    'prefix': 'lst - iterate sorted'
+    'body': '''
+    for i in sorted(lst): # rename variable to make it meaningful
+        # process row
+    '''
+
   'iterate in reverse':
-    'prefix': 'list - iterate in reverse'
+    'prefix': 'lst - iterate in reverse'
     'body': '''
     for x in reversed(lst): # rename variable to make it meaningful
         # process row
     '''
 
   'enumerate for loop starting at 1':
-    'prefix': 'list - output enumerated for loop'
+    'prefix': 'lst - output enumerated for loop'
     'body': '''
     def output_enumerated_list(lst):
         for num, j in enumerate(lst, 1): # rename variable to make it meaningful
@@ -277,21 +313,21 @@
     '''
 
   'convert elements in a list to a string separated by commas':
-    'prefix': 'list - convert to string'
+    'prefix': 'lst - convert to string'
     'body': '''
     lst = [] # populate list
     ", ".join(map(str, lst))
     '''
 
   'print header and elements of a list on the same line':
-    'prefix': 'list - print elements on the same line'
+    'prefix': 'lst - print elements on the same line'
     'body': '''
     print('kiss - original members:', end=' ')
     print(*lst, sep=', '')
     '''
 
   'zip lists':
-    'prefix': 'lists - zip'
+    'prefix': 'lst - zip'
     'body': '''
     def zip_lists(a, b):
         """zip lists and return a combined list."""
@@ -304,7 +340,7 @@
     '''
 
   'zip lists longest':
-    'prefix': 'list - zip longest'
+    'prefix': 'lst - zip longest'
     'body': '''
     from itertools import zip_longest
     lst1 = []
@@ -318,7 +354,7 @@
     'body': 'lst = [] #rename lst to make it meaningful'
 
   'create test list':
-    'prefix': 'list - test'
+    'prefix': 'lst - test'
     'body': '''
     lst = [
         'Gene',
@@ -329,25 +365,25 @@
     '''
 
   'get index of an element in a list':
-    'prefix': 'list - get index'
+    'prefix': 'lst - get index'
     'body': 'lst.index(element) # rename lst'
 
   'if variable in list':
-    'prefix': 'list - if in'
+    'prefix': 'lst - if in'
     'body': '''
     if x in lst: # rename x and lst to make them meaningful
         # process row
     '''
 
   'if variable not in list':
-    'prefix': 'list - if not in'
+    'prefix': 'lst - if not in'
     'body': '''
     if x not in lst: # rename x and lst to make them meaningful
         # process row
     '''
 
   'list - list of dictionaries - groupby':
-    'prefix': 'list - groupby'
+    'prefix': 'lst - groupby'
     'body': '''
     from itertools import groupby
 
@@ -366,7 +402,7 @@
     '''
 
   'iterate through a list and apply a conditional statement to each item':
-    'prefix': 'list - iterate and test'
+    'prefix': 'lst - iterate and test'
     'body': '''
     for word in word_list:
         if # condition:
@@ -376,7 +412,7 @@
     '''
 
   'list comprehension replacing spaces with underscores':
-    'prefix': 'list - replace spaces'
+    'prefix': 'lst - replace spaces'
     'body': '''
     import re
 
@@ -398,6 +434,18 @@
     'prefix': 'set - diff'
     'body': '''
     set_a.difference(set_b)
+    '''
+
+
+  'create dictionary from list of lists':
+    'prefix': 'dct - create dct from lists'
+    'body': '''
+    def convert_lists_to_dictionary(lst):
+        dct = {}
+        for i in range(0, len(lst), 4): # start, end, step
+            dct[lst[i]] = lst[int(i + 1): int(i + 4)]
+
+        return dct
     '''
 
   'create empty dictionary':
@@ -472,7 +520,7 @@
     '''
 
   'for loop indexed':
-    'prefix': 'list - indexed for loop'
+    'prefix': 'lst - indexed for loop'
     'body': '''
     for i in range(a, n, s): # a - start, n - stop, s - step
         # process i
@@ -838,7 +886,7 @@
     '''
 
   'generate a list of random numbers':
-    'prefix': 'list - random'
+    'prefix': 'lst - random'
     'body': '''
     import random
 
@@ -1059,19 +1107,19 @@
     'body': 'text.endswith(\'foo\') # replace \'text\' and \'foo\''
 
   'all elements in a list':
-    'prefix': 'list - all'
+    'prefix': 'lst - all'
     'body': 'all(lst) # replace lst'
 
   'any element in a list':
-    'prefix': 'list - any'
+    'prefix': 'lst - any'
     'body': 'any(lst) # replace lst'
 
   'find highest value in a list':
-    'prefix': 'list - max'
+    'prefix': 'lst - max'
     'body': 'max(lst) # replace lst'
 
   'find lowest value in a list':
-    'prefix': 'lisg - min'
+    'prefix': 'lst - min'
     'body': 'min(lst) # replace lst'
 
   'range of a list':
