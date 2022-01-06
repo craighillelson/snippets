@@ -920,9 +920,11 @@
   'validate phone number format':
     'prefix': 'regex - validate phone number format'
     'body': '''
+    import re
+
+
     def phone_number_regex(phone_number):
-        """Test to ensure phone_number is entered in xxx-xxx-xxxx format."""
-        regex = '\d{3}-\d{3}-\d{4}'
+        regex = r"^(\([0-9]{3}\) ?|[0-9]{3}-)[0-9]{3}-[0-9]{4}$"
         if re.search(regex, phone_number):
             return True
         else:
