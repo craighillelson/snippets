@@ -934,12 +934,9 @@
   'find date in a string':
     'prefix': 'regex - find date in YYYY-MM-DD format'
     'body': '''
-
     import re
 
-    def find_date():
-        """Find date in a string."""
-
+    def find_date_in_a_string():
         date_num_regex = re.compile(r'\\\\d{4}-\\\\d{2}-\\\\\d{2}')
         mo = date_num_regex.search('I was born on 1989-01-22.')
         print('Date found: ' + mo.group())
