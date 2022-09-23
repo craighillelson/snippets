@@ -348,6 +348,16 @@
     for i in zip_longest(lst1, lst2):
         print(i)
     '''
+    
+  'zip list longest with cycle':
+    'prefix': 'list - iterate through two lists, cycling through the shorter list'
+    'body': '''
+    import itertools
+    from itertools import zip_longest
+    
+    for i in zip(lst1, itertools.cycle(lst2)):
+        print(i)
+    '''
 
   'create empty list':
     'prefix': 'lst'
