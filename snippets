@@ -1,3 +1,25 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
 '.source.go':
   'package main, func main':
     'prefix': 'main'
@@ -348,19 +370,19 @@
     for i in zip_longest(lst1, lst2):
         print(i)
     '''
-    
+
   'zip list longest with cycle':
     'prefix': 'list - iterate through two lists, cycling through the shorter list'
     'body': '''
     import itertools
     from itertools import zip_longest
-    
+
     for i in zip(lst1, itertools.cycle(lst2)):
         print(i)
     '''
 
   'create empty list':
-    'prefix': 'lst'
+    'prefix': 'lst - create'
     'body': 'lst = [] #rename lst to make it meaningful'
 
   'create test list':
@@ -392,7 +414,16 @@
         # process row
     '''
 
-  'list - list of dictionaries - groupby':
+  'sort version numbers':
+    'prefix': 'lst - sort version numbers'
+    'body': '''
+    from natsort import natsorted
+
+    versions = ['9.5', '10', '8.0', '7.3', '4.2.3'] # versions is populated with test data
+    versions_sorted = natsorted(versions))
+    '''
+
+  'list dictionaries, group by values':
     'prefix': 'lst - groupby'
     'body': '''
     from itertools import groupby
@@ -408,7 +439,7 @@
     for instrument, items in groupby(rows, key=lambda r: r['instrument']):
         print(instrument)
         for i in items:
-            print('    ', i)
+            print('\\\\t', i)
     '''
 
   'iterate through a list and apply a conditional statement to each item':
@@ -486,10 +517,10 @@
     'body': 'del dct[key] # update dct and key'
 
   'loop through dictionary enumerating items starting at 1':
-    'prefix': 'dct - enumerated'
+    'prefix': 'dct - for loop enumerated'
     'body': '''
-    for num, (k, v) in enumerate(dct.items(), 1):
-        print(f'{num} {k} {v}')
+    for index, (k, v) in enumerate(dct.items(), 1):
+        print(f'{index}. {k} {v}')
     '''
 
   'update dictionary':
@@ -534,6 +565,24 @@
     'body': '''
     for i in range(a, n, s): # a - start, n - stop, s - step
         # process i
+    '''
+
+  'export to google sheet':
+    'prefix': 'google sheet - export to google sheet'
+    'body': '''
+    import ezsheets
+
+    sheet_name = 'sheet name' # name sheet
+    ss = ezsheets.createSpreadsheet(sheet_name)
+    sheet = ss[0]
+    headers = [] # populate list of headers
+    lst = [] # populate list
+    sheet.updateRow(1, headers)
+
+    for index, detail in enumerate(lst, 2):
+        sheet.updateRow(index, detail)
+
+    print(f'{sheet_name} exported successfully')
     '''
 
   'sort dictionary by keys':
@@ -585,13 +634,14 @@
     '''
 
   'turn a list of tuples into dictionary':
-    'prefix': 'tuples to dict'
+    'prefix': 'tuples to dct'
     'body': '''
     def tuple_to_dct():
         """
         Create a dictionary from a list of tuples, making the first elements the
         keys and the second elements the values.
         """
+        dct = {}
         for x, y in lst:
             dct.setdefault(x, []).append(y)
 
@@ -1014,8 +1064,8 @@
     'body': '''
     def format_percentage(num, total):
         """Format percentage to the second decimal place."""
-        perc = num / total
-        return '{:.2%}'.format(perc)
+        percentage = num / total
+        return '{:.2%}'.format(percentage)
     '''
 
   'count occurrences of a word in a list':
